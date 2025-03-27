@@ -24,7 +24,7 @@ kramdown:
   footnote_nr:      1
   entity_output:    as_char
   toc_levels:       1..6
-  smart_quotes:     lsquo,rsquo,ldquo,rdquo
+  smart_quotes:     ["apos", "apos", "quot", "quot"]
   enable_coderay:   false
   parse_block_html: true
   typographic_symbols:
@@ -42,14 +42,13 @@ kramdown:
   html_to_native: true
   line_width: 120
   latex_headers: true
-  smart_quotes: true
   header_offset: 0
   auto_link_urls: true
   show_warnings: true
 
 highlighter:         rouge
 permalink:           /:title
-plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag, jekyll-katex]
+plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag]
 
 # Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
 title:		           'chanchan'
