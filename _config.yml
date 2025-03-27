@@ -1,51 +1,20 @@
-# Site Build Settings
+title:              Blog
+tagline:            on GitHub Pages
+description:        Content-focused template for a blog hosted on GitHub Pages.
+url:                http://YourName.github.io
 
-# Jekyll-paginate-v2 configuration
-#  pagination:
-#   enabled: true
-#   per_page: 5
-#   permalink: '/page/:num/'
-#   title: ':title - page :num of :max'
-#   limit: 0
-#   sort_field: 'date'
-#   sort_reverse: true
+author:
+  name:             Your Name
+  url:              https://twitter.com/YourName
+  email:            YourName@gmail.com
 
-# jekyll-paginate configuration
-paginate:            5
-
-# Build settings
-markdown:            kramdown
-kramdown:
-  input:            GFM
-  syntax_highlighter: rouge
-  math_engine:      mathjax
-  hard_wrap:        false
-  auto_ids:         true
-  footnote_nr:      1
-  entity_output:    as_char
-  toc_levels:       1..6
-  smart_quotes:     ["apos", "apos", "quot", "quot"]
-  enable_coderay:   false
-  parse_block_html: true
-  typographic_symbols:
-    ndash: "--"
-    mdash: "---"
-    hellip: "..."
-    laquo: "<<"
-    raquo: ">>"
-    laquo_space: "<< "
-    raquo_space: " >>"
-  transliterated_header_ids: true
-
-highlighter:         rouge
-permalink:           /:title
-plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag]
-
-# Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
-title:		           'chanchan'
-description:	       ''
-author:              'chanchan'
-
-# RSS 2.0 can be used instead of Atom by uncommenting following two lines
-#feed:
-#  path: rss-feed.xml
+# GitHub Pages / Jekyll configuration
+baseurl:            ''
+permalink:          /:title/
+paginate:           5
+defaults:
+  -
+    scope:
+      path:         ''
+    values:
+      layout:       post
