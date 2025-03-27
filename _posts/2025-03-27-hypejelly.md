@@ -118,10 +118,54 @@ Hyperliquid is a decentralized exchange (DEX) that offers perpetual futures trad
 - **Liquidation Mechanism**: Positions are forcefully closed (liquidated) when price movements cause insufficient margin coverage, with the platform's liquidity providers (like Hyperliquid's HLP vault) taking over
 
 In the JELLYJELLY incident:
-- Manipulators exploited low liquidity characteristics by opening $6 million short positions
-- They pushed up spot prices to trigger liquidations for profit
-- With HLP as a passive counterparty and JELLYJELLY's shallow market depth
-- HLP faced unrealized losses up to $12 million
+
+```text
+Manipulators exploited low liquidity characteristics by opening $6 million short positions 
+and pushing up spot prices to trigger liquidations for profit. With HLP as a passive 
+counterparty and JELLYJELLY's shallow market depth, HLP faced unrealized losses up to 
+$12 million.
+```
+
+Hyperliquid's liquidations rely on on-chain data and preset rules, which made it vulnerable to manipulation in this case. The key factors were:
+
+1. **Low Liquidity Exploitation**: 
+   - Opening of $6 million short positions
+   - Strategic price manipulation through spot market purchases
+   - Targeting of liquidation triggers
+
+2. **Market Impact**:
+   - Price surge of approximately 500%
+   - Market cap expansion from $10M to $50M
+   - Unrealized losses reaching $12M
+
+3. **System Response**:
+   - Detection of manipulation patterns
+   - Emergency delisting of futures
+   - Forced liquidation at $0.0095
+
+This structured approach helps prevent text rendering issues while maintaining readability.
+
+### Technical Analysis
+
+The manipulation strategy can be expressed mathematically:
+
+$$
+\begin{aligned}
+\text{Position Size} &= \$6\text{ million} \\
+\text{Leverage} &= 10\times \\
+\text{Required Margin} &= \frac{\text{Position Size}}{\text{Leverage}} = \$600\text{K}
+\end{aligned}
+$$
+
+The potential loss calculation:
+
+$$
+\begin{aligned}
+\text{Initial Price} &= \$0.002 \\
+\text{Peak Price} &= \$0.01 \\
+\text{Max Loss} &= \text{Position Size} \times (\frac{\text{Peak Price}}{\text{Initial Price}} - 1)
+\end{aligned}
+$$
 
 ### 2.2 Market Manipulation Principle: Short Squeeze
 
