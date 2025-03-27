@@ -11,14 +11,14 @@ image: mountains.jpg
 
 - Hyperliquid delisted JELLYJELLY perpetual futures due to market manipulation
 - A trader attempted to profit through short positions and price manipulation
-- HLP vault faced ~$12M unrealized losses but achieved ~$700K profit through forced liquidation
+- HLP vault faced \~$12M unrealized losses but achieved \~$700K profit through forced liquidation
 - Hyper Foundation to automatically compensate affected users (except marked addresses)
 
 ### 1.1 Event Overview
 
 Last night, Hyperliquid delisted JELLYJELLY token's perpetual futures trading after detecting market manipulation. A trader opened approximately $6M in JELLYJELLY short positions, then attempted to profit through voluntary liquidation by pushing up the price through on-chain purchases.
 
-This caused Hyperliquid's HLP vault to face ~$12M in unrealized losses. To minimize losses, Hyperliquid delisted JELLYJELLY and forced liquidated positions at $0.0095, ultimately resulting in ~$700K profit for the HLP.
+This caused Hyperliquid's HLP vault to face \~$12M in unrealized losses. To minimize losses, Hyperliquid delisted JELLYJELLY and forced liquidated positions at $0.0095, ultimately resulting in \~$700K profit for the HLP.
 
 Hyper Foundation will automatically compensate most affected users (except marked addresses) in the coming days, requiring no user action.
 
@@ -28,7 +28,7 @@ Hyper Foundation will automatically compensate most affected users (except marke
 - Monthly decline exceeds 30%
 - Binance and OKX quickly listed JELLYJELLY perpetual futures
 - JELLYJELLY token price surged nearly 500%
-- Market cap increased from ~$10M to $50M
+- Market cap increased from \~$10M to $50M
 
 ### 1.3 Notable Details
 
@@ -36,28 +36,28 @@ The incident not only exposed vulnerabilities in Hyperliquid's liquidation mecha
 
 ### 1.4 Event Background
 
-Hyperliquid is a decentralized exchange (DEX) operating on its own Layer-1 blockchain, known for low fees, fast trading, and perpetual derivatives trading tools. JELLYJELLY is a Solana-based meme token launched by Venmo co-founder Iqram Magdon-Ismail in January 2025, initially valued at ~$250M before declining to millions. As of March 26, its market cap was ~$25M.
+Hyperliquid is a decentralized exchange (DEX) operating on its own Layer-1 blockchain, known for low fees, fast trading, and perpetual derivatives trading tools. JELLYJELLY is a Solana-based meme token launched by Venmo co-founder Iqram Magdon-Ismail in January 2025, initially valued at \~$250M before declining to millions. As of March 26, its market cap was \~$25M.
 
 ### 1.5 Event Timeline
 
-1. March 26: A trader opened ~$6M in JELLYJELLY short positions
+1. March 26: A trader opened \~$6M in JELLYJELLY short positions
 2. Price manipulation through on-chain purchases
-3. JELLYJELLY price surged ~500%
-4. Market cap reached ~$50M
-5. HLP vault faced ~$12M unrealized losses
+3. JELLYJELLY price surged \~500%
+4. Market cap reached \~$50M
+5. HLP vault faced \~$12M unrealized losses
 6. Hyperliquid validators voted to delist JELLYJELLY perpetual futures
 7. Forced liquidation at $0.0095
-8. HLP achieved ~$700K profit
+8. HLP achieved \~$700K profit
 
 ### 1.6 Technical Data
 
 | Metric | Value |
 |--------|--------|
 | Event Date | March 26-27, 2025 |
-| Trader Short Position | ~$6M |
-| JELLYJELLY Price Increase | ~500% |
-| HLP Max Unrealized Loss | ~$12M |
-| Final HLP Profit | ~$700K |
+| Trader Short Position | \~$6M |
+| JELLYJELLY Price Increase | \~500% |
+| HLP Max Unrealized Loss | \~$12M |
+| Final HLP Profit | \~$700K |
 | Settlement Price | $0.0095 |
 | HYPE Token 24h Drop | 22% (max) |
 | Monthly Decline | >30% |
