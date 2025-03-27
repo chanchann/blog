@@ -86,15 +86,15 @@ $$\text{Price Impact} = \frac{0.01 - 0.002}{0.002} \times 100\% = 400\%$$
 
 The manipulation strategy can be expressed mathematically:
 
-$$\text{Position Size} = $6\text{ million}$$
+$$\text{Position Size} = \text{<span>$6 million</span>}$$
 $$\text{Leverage} = 10\times$$
-$$\text{Required Margin} = \frac{\text{Position Size}}{\text{Leverage}} = $600\text{K}$$
+$$\text{Required Margin} = \frac{\text{Position Size}}{\text{Leverage}} = \text{<span>$600K</span>}$$
 
 The potential loss calculation:
 
-$$\text{Initial Price} = $0.002$$
-$$\text{Peak Price} = $0.01$$
-$$\text{Max Loss} = \text{Position Size} \times (\frac{\text{Peak Price}}{\text{Initial Price}} - 1)$$
+$$\text{Initial Price} = \text{<span>$0.002</span>}$$
+$$\text{Peak Price} = \text{<span>$0.01</span>}$$
+$$\text{Max Loss} = \text{Position Size} \times \left(\frac{\text{Peak Price}}{\text{Initial Price}} - 1\right)$$
 
 ### 1.8 Industry Response
 
