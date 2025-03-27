@@ -79,18 +79,40 @@ timeline
 
 The price impact can be calculated using:
 
-\\[
+\[
 \text{Price Impact} = \frac{P_{\text{final}} - P_{\text{initial}}}{P_{\text{initial}}} \times 100\%
-\\]
+\]
 
 Where:
-- \\(P_{\text{final}}\\) is the final price
-- \\(P_{\text{initial}}\\) is the initial price
+- \(P_{\text{final}}\) is the final price
+- \(P_{\text{initial}}\) is the initial price
 
 For JELLYJELLY:
-\\[
+\[
 \text{Price Impact} = \frac{0.01 - 0.002}{0.002} \times 100\% = 400\%
-\\]
+\]
+
+### Technical Analysis
+
+The manipulation strategy can be expressed mathematically:
+
+\[
+\begin{aligned}
+\text{Position Size} &= \$6\text{ million} \\
+\text{Leverage} &= 10\times \\
+\text{Required Margin} &= \frac{\text{Position Size}}{\text{Leverage}} = \$600\text{K}
+\end{aligned}
+\]
+
+The potential loss calculation:
+
+\[
+\begin{aligned}
+\text{Initial Price} &= \$0.002 \\
+\text{Peak Price} &= \$0.01 \\
+\text{Max Loss} &= \text{Position Size} \times (\frac{\text{Peak Price}}{\text{Initial Price}} - 1)
+\end{aligned}
+\]
 
 ### 1.8 Industry Response
 
@@ -139,31 +161,7 @@ Hyperliquid's liquidations rely on on-chain data and preset rules, which made it
    - Detection of manipulation patterns
    - Emergency delisting of futures
    - Forced liquidation at $0.0095
-
-This structured approach helps prevent text rendering issues while maintaining readability.
-
-### Technical Analysis
-
-The manipulation strategy can be expressed mathematically:
-
-\\[
-\begin{aligned}
-\text{Position Size} &= \$6\text{ million} \\\\
-\text{Leverage} &= 10\times \\\\
-\text{Required Margin} &= \frac{\text{Position Size}}{\text{Leverage}} = \$600\text{K}
-\end{aligned}
-\\]
-
-The potential loss calculation:
-
-\\[
-\begin{aligned}
-\text{Initial Price} &= \$0.002 \\\\
-\text{Peak Price} &= \$0.01 \\\\
-\text{Max Loss} &= \text{Position Size} \times (\frac{\text{Peak Price}}{\text{Initial Price}} - 1)
-\end{aligned}
-\\]
-
+   
 ### 2.2 Market Manipulation Principle: Short Squeeze
 
 The core of the incident involved a "short squeeze" operation, executed as follows:
