@@ -16,7 +16,11 @@ image: mountains.jpg
 
 ### 1.1 Event Overview
 
-Last night, Hyperliquid delisted JELLYJELLY token's perpetual futures trading after detecting market manipulation. A trader opened approximately $6M in JELLYJELLY short positions, then attempted to profit through voluntary liquidation by pushing up the price through on-chain purchases. This caused Hyperliquid's HLP vault to face ~$12M in unrealized losses. To minimize losses, Hyperliquid delisted JELLYJELLY and forced liquidated positions at $0.0095, ultimately resulting in ~$700K profit for the HLP. Hyper Foundation will automatically compensate most affected users (except marked addresses) in the coming days, requiring no user action.
+Last night, Hyperliquid delisted JELLYJELLY token's perpetual futures trading after detecting market manipulation. A trader opened approximately $6M in JELLYJELLY short positions, then attempted to profit through voluntary liquidation by pushing up the price through on-chain purchases.
+
+This caused Hyperliquid's HLP vault to face ~$12M in unrealized losses. To minimize losses, Hyperliquid delisted JELLYJELLY and forced liquidated positions at $0.0095, ultimately resulting in ~$700K profit for the HLP.
+
+Hyper Foundation will automatically compensate most affected users (except marked addresses) in the coming days, requiring no user action.
 
 ### 1.2 Market Reaction
 
@@ -82,7 +86,11 @@ Hyperliquid is a decentralized exchange (DEX) that offers perpetual futures trad
 - **Funding Rate**: Balance between longs and shorts is maintained through funding rates to prevent prices from deviating too far from spot markets
 - **Liquidation Mechanism**: Positions are forcefully closed (liquidated) when price movements cause insufficient margin coverage, with the platform's liquidity providers (like Hyperliquid's HLP vault) taking over
 
-In the JELLYJELLY incident, traders exploited this mechanism's high leverage feature, attempting to profit by manipulating prices to trigger liquidations.
+In the JELLYJELLY incident:
+- Manipulators exploited low liquidity characteristics by opening $6 million short positions
+- They pushed up spot prices to trigger liquidations for profit
+- With HLP as a passive counterparty and JELLYJELLY's shallow market depth
+- HLP faced unrealized losses up to $12 million
 
 ### 2.2 Market Manipulation Principle: Short Squeeze
 
