@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.license       = "CC0-1.0"
   s.authors       = ["Lorenzo Pirritano"]
   s.email         = ["lorepirri@gmail.com"]
-  s.homepage      = "https://chanchann.github.io/blog/"
+  s.homepage      = "https://github.com/chanchann"
   s.summary       = ""
 
   s.files         = `git ls-files -z`.split("\x0").select do |f|

@@ -8,10 +8,6 @@
 layout: home
 ---
 
-Cayman Blog Theme is a clean, responsive blogging theme for Jekyll. It is inspired by the Cayman Theme for Github Pages, which can be greatly used for single projects but not as blogging platform.
+Hi, I'm chanchan, a full-stack developer with extensive experience in software development and infrastructure. Currently serving as the CTO at xcypher.ai, I'm passionate about building high-performance systems and exploring cutting-edge technologies.
 
-This theme has instead all you need to start today blogging with Jekyll, and no effort: pages, posts, few social buttons. Try loading this on mobile too.
-
-Have a look at the Github page for more information.
-
-You find this descriptive text in the `index.md` file, so you can change it, or remove it completely, according to your needs.
+If you want to know more about me, you can visit my [About page](/about).
