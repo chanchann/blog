@@ -118,12 +118,10 @@ Hyperliquid is a decentralized exchange (DEX) that offers perpetual futures trad
 
 In the JELLYJELLY incident:
 
-```text
 Manipulators exploited low liquidity characteristics by opening $6 million short positions 
 and pushing up spot prices to trigger liquidations for profit. With HLP as a passive 
 counterparty and JELLYJELLY's shallow market depth, HLP faced unrealized losses up to 
 $12 million.
-```
 
 Hyperliquid's liquidations rely on on-chain data and preset rules, which made it vulnerable to manipulation in this case. The key factors were:
 
