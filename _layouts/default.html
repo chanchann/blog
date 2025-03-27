@@ -44,11 +44,15 @@
     
     <meta name="robots" content="noarchive">
     
+    <!-- KaTeX CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwP0zseq7YGUlGz0fX53Wn2v8Y/xpi++ZkGrAyW" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | absolute_url }}">
+    
     <!-- <link rel="alternate" media="only screen and (max-width: 640px)" href="">
         <link rel="alternate" media="handheld" href=""> -->
         
         
-        <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | absolute_url }}">
     </head>
     <body>
         
@@ -155,6 +159,20 @@
                 }
                 return false;
             }  
+        </script>
+        
+        <!-- KaTeX JavaScript -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1QQZNUe1e6VK7VTbUKX7s9wCAYbB2UXYEhqdhM" crossorigin="anonymous"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        {left: "$$", right: "$$", display: true},
+                        {left: "$", right: "$", display: false}
+                    ]
+                });
+            });
         </script>
         
     </body>
