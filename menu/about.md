@@ -1,19 +1,29 @@
 ---
 layout: page
-title: Welcome to Lagrange!
+title: Welcome to chanchan's blog!
 permalink: /about
 ---
 
-Lagrange is a minimalist Jekyll theme. The purpose of this theme is to provide a simple, clean, content-focused blogging platform for your personal site or blog. Below you can find everything you need to get started.
+Hi, I'm chanchan, a full-stack developer with extensive experience in software development and infrastructure. Currently serving as the CTO at xcypher.ai, I'm passionate about building high-performance systems and exploring cutting-edge technologies.
 
-### Getting Started
+### Professional Background
 
-[Getting Started]({{ site.github.url }}{% post_url 2015-10-10-getting-started %}): getting started with installing Lagrange, whether you are completely new to using Jekyll, or simply just migrating to a new Jekyll theme.
+- Research experience in AI at UBETECH Sydney
+- Former Search Advertising Developer at Tencent
+- Current focus on cryptocurrency quantitative trading systems
+- Active contributor to open-source infrastructure projects including [Workflow](https://github.com/sogou/workflow) and [wfrest](https://github.com/wfrest/wfrest)
 
-### Example Content
+### Technical Expertise
 
-[Text and Formatting]({{ site.github.url }}{% post_url 2014-01-01-text-formatting-examples %})
+I specialize in multiple programming languages and technologies:
+- Go, C++, Rust, TypeScript
+- Full-stack development
+- High-performance systems
+- Infrastructure development
+- AI/ML systems
 
-### Questions?
+### Open Source Contributions
 
-This theme is completely free and open source software. You may use it however you want, as it is distributed under the [MIT License](http://choosealicense.com/licenses/mit/). If you are having any problems, any questions or suggestions, feel free to [tweet at me](https://twitter.com/intent/tweet?text=My%question%about%Lagrange%is:%&amp;via=paululele), or [file a GitHub issue](https://github.com/lenpaul/lagrange/issues/new).
+I'm passionate about open source and have contributed to several significant projects in the infrastructure space. My contributions focus on building robust, scalable systems that solve real-world problems.
+
+Feel free to connect with me on GitHub or reach out for collaborations and discussions about technology, development, or any other topics of interest.
