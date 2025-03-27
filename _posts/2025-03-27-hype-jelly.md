@@ -79,40 +79,40 @@ timeline
 
 The price impact can be calculated using:
 
-\[
+$$
 \text{Price Impact} = \frac{P_{\text{final}} - P_{\text{initial}}}{P_{\text{initial}}} \times 100\%
-\]
+$$
 
 Where:
-- \(P_{\text{final}}\) is the final price
-- \(P_{\text{initial}}\) is the initial price
+- $P_{\text{final}}$ is the final price
+- $P_{\text{initial}}$ is the initial price
 
 For JELLYJELLY:
-\[
+$$
 \text{Price Impact} = \frac{0.01 - 0.002}{0.002} \times 100\% = 400\%
-\]
+$$
 
 ### Technical Analysis
 
 The manipulation strategy can be expressed mathematically:
 
-\[
-\begin{aligned}
+$$
+\begin{align*}
 \text{Position Size} &= \$6\text{ million} \\
 \text{Leverage} &= 10\times \\
 \text{Required Margin} &= \frac{\text{Position Size}}{\text{Leverage}} = \$600\text{K}
-\end{aligned}
-\]
+\end{align*}
+$$
 
 The potential loss calculation:
 
-\[
-\begin{aligned}
+$$
+\begin{align*}
 \text{Initial Price} &= \$0.002 \\
 \text{Peak Price} &= \$0.01 \\
 \text{Max Loss} &= \text{Position Size} \times (\frac{\text{Peak Price}}{\text{Initial Price}} - 1)
-\end{aligned}
-\]
+\end{align*}
+$$
 
 ### 1.8 Industry Response
 
