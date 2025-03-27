@@ -7,8 +7,8 @@ Gem::Specification.new do |s|
   s.license       = "CC0-1.0"
   s.authors       = ["Lorenzo Pirritano"]
   s.email         = ["lorepirri@gmail.com"]
-  s.homepage      = "https://github.com/lorepirri/cayman-blog"
-  s.summary       = "Cayman Blog Theme is a clean, responsive blogging theme for Jekyll and Gitlab/GitHub Pages. Based on Cayman theme."
+  s.homepage      = "https://chanchann.github.io/blog/"
+  s.summary       = ""
 
   s.files         = `git ls-files -z`.split("\x0").select do |f|
     f.match(%r{^((_includes|_layouts|_sass|assets)/|(LICENSE|README|index|about|contact|now|404)((\.(txt|md|markdown)|$)))}i)
