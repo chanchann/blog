@@ -13,6 +13,19 @@
     </script>
     {% endif %}
     
+    <!-- Debug script for KaTeX -->
+    <script>
+        console.log("Page loading started");
+        window.mathDebug = {
+            events: [],
+            log: function(msg) {
+                console.log("Math Debug: " + msg);
+                this.events.push({time: new Date(), message: msg});
+            }
+        };
+        window.mathDebug.log("Debug script initialized");
+    </script>
+    
     <!-- Non social metatags -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -45,12 +58,12 @@
     <meta name="robots" content="noarchive">
     
     <!-- KaTeX CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwP0zseq7YGUlGz0fX53Wn2v8Y/xpi++ZkGrAyW" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     
     <!-- KaTeX JavaScript -->
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1QQZNUe1e6VK7VTbUKX7s9wCAYbB2UXYEhqdhM" crossorigin="anonymous"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/mhchem.min.js" integrity="sha384-ifpG+NlgMq0kvOSGqGQxW1mJKpjjMDmZdpKGq3tbvD3WPhyshCEEYClriK/wRVY0" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/mhchem.min.js"></script>
     
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | absolute_url }}">
     
@@ -169,38 +182,42 @@
         <!-- Initialize KaTeX -->
         <script>
             document.addEventListener("DOMContentLoaded", function() {
-                renderMathInElement(document.body, {
-                    delimiters: [
-                        {left: "$$", right: "$$", display: true},
-                        {left: "$", right: "$", display: false},
-                        {left: "\\[", right: "\\]", display: true},
-                        {left: "\\(", right: "\\)", display: false},
-                        {left: "\\begin{equation}", right: "\\end{equation}", display: true},
-                        {left: "\\begin{align*}", right: "\\end{align*}", display: true},
-                        {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
-                        {left: "\\begin{gather}", right: "\\end{gather}", display: true},
-                        {left: "\\begin{CD}", right: "\\end{CD}", display: true}
-                    ],
-                    throwOnError: false,
-                    errorColor: '#cc0000',
-                    strict: false,
-                    trust: true,
-                    macros: {
-                        "\\frac": "\\frac",
-                        "\\text": "\\text",
-                        "\\begin": "\\begin",
-                        "\\end": "\\end",
-                        "\\aligned": "\\aligned",
-                        "\\bm": "\\boldsymbol"
-                    },
-                    globalGroup: true,
-                    fleqn: false,
-                    leqno: false,
-                    minRuleThickness: 0.05,
-                    maxSize: Infinity,
-                    maxExpand: 1000,
-                    output: "html"
-                });
+                try {
+                    window.mathDebug.log("DOM content loaded, attempting to initialize KaTeX");
+                    
+                    if (typeof renderMathInElement === 'function') {
+                        window.mathDebug.log("KaTeX renderMathInElement function found");
+                        
+                        // Check if KaTeX is fully loaded
+                        if (typeof katex !== 'undefined') {
+                            window.mathDebug.log("KaTeX object found: version " + katex.version);
+                        } else {
+                            window.mathDebug.log("WARNING: katex object not found!");
+                        }
+                        
+                        // Look for math elements
+                        var mathElements = document.querySelectorAll('p, li, .main-content');
+                        window.mathDebug.log("Scanning " + mathElements.length + " potential container elements");
+                        
+                        renderMathInElement(document.body, {
+                            delimiters: [
+                                {left: "$$", right: "$$", display: true},
+                                {left: "$", right: "$", display: false}
+                            ],
+                            throwOnError: false,
+                            errorCallback: function(err) {
+                                window.mathDebug.log("Math rendering error: " + err.message);
+                            }
+                        });
+                        
+                        window.mathDebug.log("KaTeX initialization completed");
+                    } else {
+                        window.mathDebug.log("ERROR: KaTeX renderMathInElement function not found!");
+                    }
+                } catch (e) {
+                    window.mathDebug.log("CRITICAL ERROR during KaTeX initialization: " + e.message);
+                    console.error("KaTeX initialization error:", e);
+                }
             });
         </script>
         
