@@ -164,13 +164,23 @@
         <!-- KaTeX JavaScript -->
         <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1QQZNUe1e6VK7VTbUKX7s9wCAYbB2UXYEhqdhM" crossorigin="anonymous"></script>
         <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/mhchem.min.js" integrity="sha384-ifpG+NlgMq0kvOSGqGQxW1mJKpjjMDmZdpKGq3tbvD3WPhyshCEEYClriK/wRVY0" crossorigin="anonymous"></script>
         <script>
             document.addEventListener("DOMContentLoaded", function() {
                 renderMathInElement(document.body, {
                     delimiters: [
                         {left: "$$", right: "$$", display: true},
-                        {left: "$", right: "$", display: false}
-                    ]
+                        {left: "$", right: "$", display: false},
+                        {left: "\\[", right: "\\]", display: true},
+                        {left: "\\(", right: "\\)", display: false}
+                    ],
+                    throwOnError: false,
+                    trust: true,
+                    strict: false,
+                    macros: {
+                        "\\frac": "\\frac",
+                        "\\text": "\\text"
+                    }
                 });
             });
         </script>
