@@ -2,3 +2,28 @@
 ---
 
 @import 'jekyll-theme-cayman-blog';
+
+/* KaTeX styling */
+.katex { font-size: 1.1em; }
+
+.katex-display {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 1em 0;
+    margin: 1em 0;
+}
+
+.katex-display > .katex {
+    text-align: center;
+}
+
+/* Fix for inline math */
+.katex-inline {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+    .katex { color: #f8f8f2; }
+}
