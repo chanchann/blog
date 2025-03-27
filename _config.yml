@@ -5,6 +5,12 @@ show_downloads: false
 baseurl: "/blog" # change this to the subpath of your site, e.g. /blog. Leave it empty if you don't need it.
 url: "https://chanchann.github.io/" # change this to the base hostname & protocol for your site
 
+# Math settings
+markdown: kramdown
+kramdown:
+  math_engine: katex
+  math_engine_opts:
+    preview: true
 
 google_analytics:
 
@@ -23,6 +29,7 @@ twitter:
 
 plugins:
   - jekyll-target-blank
+  - jekyll-katex  # Add KaTeX support
 
 target-blank:
     rel: nofollow
