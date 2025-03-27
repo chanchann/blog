@@ -54,7 +54,7 @@ timeline
     title JELLYJELLY Incident Timeline
     March 26 : Trader opens ~$6M short positions
     : Price manipulation begins
-    : JELLYJELLY price surges \~500%
+    : JELLYJELLY price surges ~500%
     : Market cap reaches ~$50M
     : HLP vault faces ~$12M losses
     March 27 : Hyperliquid delists futures
@@ -68,7 +68,7 @@ timeline
 |--------|--------|
 | Event Date | March 26-27, 2025 |
 | Trader Short Position | ~$6M |
-| JELLYJELLY Price Increase | \~500% |
+| JELLYJELLY Price Increase | ~500% |
 | HLP Max Unrealized Loss | ~$12M |
 | Final HLP Profit | ~$700K |
 | Settlement Price | $0.0095 |
@@ -77,24 +77,24 @@ timeline
 
 ### 1.7 Price Impact Formula
 
-$$\text{Price Impact} = \frac{P_\text{final} - P_\text{initial}}{P_\text{initial}} \times 100\%$$
+**Price Impact = (P_final - P_initial) / P_initial × 100%**
 
 For JELLYJELLY:
-$$\text{Price Impact} = \frac{0.01 - 0.002}{0.002} \times 100\% = 400\%$$
+**Price Impact = (0.01 - 0.002) / 0.002 × 100% = 400%**
 
 ### Technical Analysis
 
 The manipulation strategy can be expressed mathematically:
 
-$$\text{Position Size} = \text{<span>$6 million</span>}$$
-$$\text{Leverage} = 10\times$$
-$$\text{Required Margin} = \frac{\text{Position Size}}{\text{Leverage}} = \text{<span>$600K</span>}$$
+**Position Size = <span>$6 million</span>**  
+**Leverage = 10×**  
+**Required Margin = Position Size / Leverage = <span>$600K</span>**
 
 The potential loss calculation:
 
-$$\text{Initial Price} = \text{<span>$0.002</span>}$$
-$$\text{Peak Price} = \text{<span>$0.01</span>}$$
-$$\text{Max Loss} = \text{Position Size} \times \left(\frac{\text{Peak Price}}{\text{Initial Price}} - 1\right)$$
+**Initial Price = <span>$0.002</span>**  
+**Peak Price = <span>$0.01</span>**  
+**Max Loss = Position Size × (Peak Price / Initial Price - 1)**
 
 ### 1.8 Industry Response
 
@@ -135,7 +135,7 @@ Hyperliquid's liquidations rely on on-chain data and preset rules, which made it
    - Targeting of liquidation triggers
 
 2. **Market Impact**:
-   - Price surge of \~500%
+   - Price surge of ~500%
    - Market cap expansion from <span>$10M<span> to <span>$50M<span>
    - Unrealized losses reaching <span>$12M<span>
 
