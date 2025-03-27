@@ -15,9 +15,22 @@ paginate:            5
 
 # Build settings
 markdown:            kramdown
+kramdown:
+  input:            GFM
+  syntax_highlighter: rouge
+  math_engine:      mathjax
+  hard_wrap:        false
+  auto_ids:         true
+  footnote_nr:      1
+  entity_output:    as_char
+  toc_levels:       1..6
+  smart_quotes:     lsquo,rsquo,ldquo,rdquo
+  enable_coderay:   false
+  parse_block_html: true
+
 highlighter:         rouge
 permalink:           /:title
-plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag]
+plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag, jekyll-katex]
 
 # Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
 title:		           'chanchan'

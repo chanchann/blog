@@ -5,30 +5,40 @@ author: "chanchan"
 categories: journal
 tags: [documentation,sample]
 image: mountains.jpg
+toc: true
 ---
 
-## 1. What happend
+## 1. What happened
 
 - Hyperliquid delisted JELLYJELLY perpetual futures due to market manipulation
 - A trader attempted to profit through short positions and price manipulation
-- HLP vault faced \~$12M unrealized losses but achieved \~$700K profit through forced liquidation
+- HLP vault faced $12M unrealized losses but achieved $700K profit through forced liquidation
 - Hyper Foundation to automatically compensate affected users (except marked addresses)
 
 ### 1.1 Event Overview
 
 Last night, Hyperliquid delisted JELLYJELLY token's perpetual futures trading after detecting market manipulation. A trader opened approximately $6M in JELLYJELLY short positions, then attempted to profit through voluntary liquidation by pushing up the price through on-chain purchases.
 
-This caused Hyperliquid's HLP vault to face \~$12M in unrealized losses. To minimize losses, Hyperliquid delisted JELLYJELLY and forced liquidated positions at $0.0095, ultimately resulting in \~$700K profit for the HLP.
+This caused Hyperliquid's HLP vault to face ~$12M in unrealized losses. To minimize losses, Hyperliquid delisted JELLYJELLY and forced liquidated positions at $0.0095, ultimately resulting in ~$700K profit for the HLP.
 
 Hyper Foundation will automatically compensate most affected users (except marked addresses) in the coming days, requiring no user action.
 
 ### 1.2 Market Reaction
 
+```markdown
+| Impact | Change |
+|--------|--------|
+| HYPE Price Drop | -22% |
+| Monthly Decline | >30% |
+| JELLYJELLY Surge | +500% |
+| Market Cap Change | $10M → $50M |
+```
+
 - HYPE token price dropped 22% before partial recovery
 - Monthly decline exceeds 30%
 - Binance and OKX quickly listed JELLYJELLY perpetual futures
 - JELLYJELLY token price surged nearly 500%
-- Market cap increased from \~$10M to $50M
+- Market cap increased from ~$10M to $50M
 
 ### 1.3 Notable Details
 
@@ -36,43 +46,64 @@ The incident not only exposed vulnerabilities in Hyperliquid's liquidation mecha
 
 ### 1.4 Event Background
 
-Hyperliquid is a decentralized exchange (DEX) operating on its own Layer-1 blockchain, known for low fees, fast trading, and perpetual derivatives trading tools. JELLYJELLY is a Solana-based meme token launched by Venmo co-founder Iqram Magdon-Ismail in January 2025, initially valued at \~$250M before declining to millions. As of March 26, its market cap was \~$25M.
+Hyperliquid is a decentralized exchange (DEX) operating on its own Layer-1 blockchain, known for low fees, fast trading, and perpetual derivatives trading tools. JELLYJELLY is a Solana-based meme token launched by Venmo co-founder Iqram Magdon-Ismail in January 2025, initially valued at ~$250M before declining to millions. As of March 26, its market cap was ~$25M.
 
 ### 1.5 Event Timeline
 
-1. March 26: A trader opened \~$6M in JELLYJELLY short positions
-2. Price manipulation through on-chain purchases
-3. JELLYJELLY price surged \~500%
-4. Market cap reached \~$50M
-5. HLP vault faced \~$12M unrealized losses
-6. Hyperliquid validators voted to delist JELLYJELLY perpetual futures
-7. Forced liquidation at $0.0095
-8. HLP achieved \~$700K profit
+```mermaid
+timeline
+    title JELLYJELLY Incident Timeline
+    March 26 : Trader opens ~$6M short positions
+    : Price manipulation begins
+    : JELLYJELLY price surges ~500%
+    : Market cap reaches ~$50M
+    : HLP vault faces ~$12M losses
+    March 27 : Hyperliquid delists futures
+    : Forced liquidation at $0.0095
+    : HLP achieves ~$700K profit
+```
 
 ### 1.6 Technical Data
 
 | Metric | Value |
 |--------|--------|
 | Event Date | March 26-27, 2025 |
-| Trader Short Position | \~$6M |
-| JELLYJELLY Price Increase | \~500% |
-| HLP Max Unrealized Loss | \~$12M |
-| Final HLP Profit | \~$700K |
+| Trader Short Position | ~$6M |
+| JELLYJELLY Price Increase | ~500% |
+| HLP Max Unrealized Loss | ~$12M |
+| Final HLP Profit | ~$700K |
 | Settlement Price | $0.0095 |
 | HYPE Token 24h Drop | 22% (max) |
 | Monthly Decline | >30% |
 
-### 1.7 Industry Response
+### 1.7 Price Impact Formula
+
+The price impact can be calculated using:
+
+$$
+\text{Price Impact} = \frac{P_{\text{final}} - P_{\text{initial}}}{P_{\text{initial}}} \times 100\%
+$$
+
+Where:
+- $P_{\text{final}}$ is the final price
+- $P_{\text{initial}}$ is the initial price
+
+For JELLYJELLY:
+$$
+\text{Price Impact} = \frac{0.01 - 0.002}{0.002} \times 100\% = 400\%
+$$
+
+### 1.8 Industry Response
 
 - **Bitget CEO Gracy Chen**: Criticized handling as "immature, unethical, unprofessional"
 - **BitMEX Co-founder Arthur Hayes**: Questioned decentralization level
 - **Supporters**: Praised intervention to prevent liquidity crisis
 
-## 1.8 Technical Implications & Future Outlook
+## 1.9 Technical Implications & Future Outlook
 
 The incident revealed potential vulnerabilities in Hyperliquid's liquidation mechanism, particularly for low-liquidity token perpetual futures. Hyperliquid has committed to technical improvements to prevent similar market manipulation and enhance network stability.
 
-## 1.9 Conclusion
+## 1.10 Conclusion
 
 The Hyperliquid-JELLYJELLY incident represents a market manipulation-triggered liquidity crisis. While Hyperliquid successfully mitigated losses through delisting and forced liquidation, the event sparked widespread debate about decentralization principles and operational integrity, potentially impacting future market position and user trust.
 
