@@ -1,14 +1,12 @@
 ---
 layout: post
-title: "Comprehensive Analysis of Hyperliquid JELLYJELLY Market Manipulation Incident!"
+title: "Hyperliquid JELLYJELLY Market Manipulation Incident!"
 author: "chanchan"
 categories: journal
 tags: [documentation,sample]
 image: mountains.jpg
 ---
-
-# Hyperliquid JELLYJELLY Market Manipulation Incident
-
+`
 ## 1. What happend
 
 - Hyperliquid delisted JELLYJELLY perpetual futures due to market manipulation
