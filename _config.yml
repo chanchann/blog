@@ -27,6 +27,16 @@ kramdown:
   smart_quotes:     lsquo,rsquo,ldquo,rdquo
   enable_coderay:   false
   parse_block_html: true
+  typographic_symbols:
+    ndash: "--"
+    mdash: "---"
+    hellip: "..."
+    laquo: "<<"
+    raquo: ">>"
+    laquo_space: "<< "
+    raquo_space: " >>"
+  template: "kramdown/document"
+  transliterated_header_ids: true
 
 highlighter:         rouge
 permalink:           /:title
