@@ -35,16 +35,7 @@ kramdown:
     raquo: ">>"
     laquo_space: "<< "
     raquo_space: " >>"
-  template: "kramdown/document"
   transliterated_header_ids: true
-  auto_id_stripping: true
-  auto_ids_prefix: 'section'
-  html_to_native: true
-  line_width: 120
-  latex_headers: true
-  header_offset: 0
-  auto_link_urls: true
-  show_warnings: true
 
 highlighter:         rouge
 permalink:           /:title
