@@ -8,8 +8,6 @@ image: mountains.jpg
 toc: true
 ---
 
-## What is Kafka?
-
 Apache Kafka is a distributed streaming platform initially developed by LinkedIn, later open-sourced and became an Apache top-level project. It's mainly used for processing large-scale, high-throughput, real-time message streaming data. Kafka's design goals are high performance, low latency, and fault tolerance, commonly used in log collection, event sourcing, real-time data pipelines, message queuing, and other scenarios.
 
 Simply put, Kafka is a "publish-subscribe" model messaging system:

@@ -8,8 +8,6 @@ image: mountains.jpg
 toc: true
 ---
 
-## 1. What happened
-
 - Hyperliquid delisted JELLYJELLY perpetual futures due to market manipulation
 - A trader attempted to profit through short positions and price manipulation
 - HLP vault faced <span>~$12M<span> unrealized losses but achieved <span>$700K<span> profit through forced liquidation
