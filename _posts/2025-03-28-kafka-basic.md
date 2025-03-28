@@ -6,7 +6,7 @@ categories: journal
 tags: [documentation,sample]
 image: mountains.jpg
 toc: true
-------
+---
 
 ## What is Kafka?
 
