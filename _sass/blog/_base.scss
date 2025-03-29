@@ -28,3 +28,16 @@
   display: table;
   clear: both;
 }
+
+/**
+ * Comments
+ */
+.comments {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid $grey-color-light;
+}
+
+.comments h2 {
+  margin-bottom: 1rem;
+}

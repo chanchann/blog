@@ -35,3 +35,7 @@ target-blank:
     rel: nofollow
 
 header_page_refs: ['about', 'contact']
+
+# GitHub Comments (powered by utteranc.es)
+github_comments:
+  repository: chanchann/blog-comments # Change this to your GitHub username/repository that will store the comments

@@ -22,4 +22,11 @@ layout: default
   {% if site.disqus.shortname %}
     {% include disqus_comments.html %}
   {% endif %}
+  
+  {% if site.github_comments.repository %}
+    <div class="comments">
+      <h2>Comments</h2>
+      {% include github_comments.html %}
+    </div>
+  {% endif %}
 </article>
