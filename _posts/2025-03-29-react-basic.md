@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Basic Concepts of React Routing"
+title: "React Basic Concepts"
 author: "chanchan"
 categories: journal
 tags: [documentation,sample]
