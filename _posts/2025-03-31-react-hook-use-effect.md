@@ -100,6 +100,42 @@ function App() {
 
 After clicking the button, show becomes false, `<Counter />` is removed, and "Component unmounted" will be logged to the console.
 
+### Component Lifecycle Flow
+
+#### 1. During Initial Render:
+- The `App` component renders, with the initial value of `show` as `true`
+- Because `show` is `true`, the `Counter` component is rendered to the DOM
+- After the `Counter` component mounts, `useEffect` executes, printing `"Component mounted"` to the console
+- Since the dependency array is empty `[]`, this effect will only execute once when the component first renders
+
+#### 2. When Button is Clicked:
+- User clicks the "Hide Counter" button
+- `setShow(false)` is called, changing the `show` state to `false`
+- React re-renders the `App` component
+- Since `show` is now `false`, the `Counter` component will be removed from the DOM (unmounted)
+- **Before removing the `Counter` component**, React will execute the cleanup function returned in `useEffect`
+- The cleanup function executes, printing `"Component unmounted"` to the console
+
+### Cleanup Function Call Mechanism
+
+React calls the cleanup function in the following situations:
+
+1. **When the component unmounts**: Before the component is removed from the DOM, React automatically calls the cleanup function
+2. **Before re-executing the effect due to dependency changes**: If the effect's dependencies change, React will call the cleanup function from the previous effect before executing the new effect
+
+In your example, since the dependency array is empty `[]`, the effect only executes once at mount, and the cleanup function only executes once at unmount.
+
+### Internal Working Mechanism
+
+React internally maintains the lifecycle state of components. When it detects that a component needs to be unmounted (e.g., conditional rendering becomes false), React will:
+
+1. Mark the component for removal
+2. Before removing the component, look for all cleanup functions registered with `useEffect` in that component
+3. Execute these cleanup functions in the order they were registered
+4. Finally remove the component from the DOM
+
+This mechanism ensures that components can "clean up after themselves" before being removed, preventing memory leaks and other resource issues.
+
 ## 3. What is the Dependency Array?
 
 The dependency array is useEffect's second parameter. It tells React: "Hey, only run the side effect when these values change." Without a dependency array, the side effect runs after every render.
