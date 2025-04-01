@@ -10,14 +10,14 @@ toc: true
 
 - Hyperliquid delisted JELLYJELLY perpetual futures due to market manipulation
 - A trader attempted to profit through short positions and price manipulation
-- HLP vault faced <span>~$12M<span> unrealized losses but achieved <span>$700K<span> profit through forced liquidation
+- HLP vault faced **~$12M** unrealized losses but achieved **$700K** profit through forced liquidation
 - Hyper Foundation to automatically compensate affected users (except marked addresses)
 
 ### 1.1 Event Overview
 
-Last night, Hyperliquid delisted JELLYJELLY token's perpetual futures trading after detecting market manipulation. A trader opened <span>~$6M<span> in JELLYJELLY short positions, then attempted to profit through voluntary liquidation by pushing up the price through on-chain purchases.
+Last night, Hyperliquid delisted JELLYJELLY token's perpetual futures trading after detecting market manipulation. A trader opened **~$6M** in JELLYJELLY short positions, then attempted to profit through voluntary liquidation by pushing up the price through on-chain purchases.
 
-This caused Hyperliquid's HLP vault to face <span>~$12M<span> in unrealized losses. To minimize losses, Hyperliquid delisted JELLYJELLY and forced liquidated positions at <span>$0.0095<span>, ultimately resulting in <span>~$700K<span> profit for the HLP.
+This caused Hyperliquid's HLP vault to face **~$12M** in unrealized losses. To minimize losses, Hyperliquid delisted JELLYJELLY and forced liquidated positions at **$0.0095**, ultimately resulting in **~$700K** profit for the HLP.
 
 Hyper Foundation will automatically compensate most affected users (except marked addresses) in the coming days, requiring no user action.
 
@@ -35,7 +35,7 @@ Hyper Foundation will automatically compensate most affected users (except marke
 - Monthly decline exceeds 30%
 - Binance and OKX quickly listed JELLYJELLY perpetual futures
 - JELLYJELLY token price surged nearly 500%
-- Market cap increased from <span>~$10M<span> to <span>$50M<span>
+- Market cap increased from **~$10M** to **~$50M**
 
 ### 1.3 Notable Details
 
@@ -43,7 +43,7 @@ The incident not only exposed vulnerabilities in Hyperliquid's liquidation mecha
 
 ### 1.4 Event Background
 
-Hyperliquid is a decentralized exchange (DEX) operating on its own Layer-1 blockchain, known for low fees, fast trading, and perpetual derivatives trading tools. JELLYJELLY is a Solana-based meme token launched by Venmo co-founder Iqram Magdon-Ismail in January 2025, initially valued at <span>~$250M<span> before declining to millions. As of March 26, its market cap was <span>~$25M<span>.
+Hyperliquid is a decentralized exchange (DEX) operating on its own Layer-1 blockchain, known for low fees, fast trading, and perpetual derivatives trading tools. JELLYJELLY is a Solana-based meme token launched by Venmo co-founder Iqram Magdon-Ismail in January 2025, initially valued at **~$250M** before declining to millions. As of March 26, its market cap was **~$25M**.
 
 ### 1.5 Event Timeline
 
@@ -84,14 +84,14 @@ For JELLYJELLY:
 
 The manipulation strategy can be expressed mathematically:
 
-**Position Size = <span>$6 million</span>**  
+**Position Size = **~$6 million****  
 **Leverage = 10×**  
-**Required Margin = Position Size / Leverage = <span>$600K</span>**
+**Required Margin = Position Size / Leverage = **~$600K****
 
 The potential loss calculation:
 
-**Initial Price = <span>$0.002</span>**  
-**Peak Price = <span>$0.01</span>**  
+**Initial Price = **~$0.002****  
+**Peak Price = **~$0.01****  
 **Max Loss = Position Size × (Peak Price / Initial Price - 1)**
 
 ### 1.8 Industry Response
@@ -120,27 +120,27 @@ Hyperliquid is a decentralized exchange (DEX) that offers perpetual futures trad
 
 In the JELLYJELLY incident:
 
-Manipulators exploited low liquidity characteristics by opening <span>$6<span> million short positions 
+Manipulators exploited low liquidity characteristics by opening **$6** million short positions 
 and pushing up spot prices to trigger liquidations for profit. With HLP as a passive 
 counterparty and JELLYJELLY's shallow market depth, HLP faced unrealized losses up to 
-<span>$12<span> million.
+**$12** million.
 
 Hyperliquid's liquidations rely on on-chain data and preset rules, which made it vulnerable to manipulation in this case. The key factors were:
 
 1. **Low Liquidity Exploitation**: 
-   - Opening of <span>$6<span> million short positions
+   - Opening of **$6** million short positions
    - Strategic price manipulation through spot market purchases
    - Targeting of liquidation triggers
 
 2. **Market Impact**:
    - Price surge of ~500%
-   - Market cap expansion from <span>$10M<span> to <span>$50M<span>
-   - Unrealized losses reaching <span>$12M<span>
+   - Market cap expansion from **~$10M** to **~$50M**
+   - Unrealized losses reaching **~$12M**
 
 3. **System Response**:
    - Detection of manipulation patterns
    - Emergency delisting of futures
-   - Forced liquidation at <span>$0.0095<span>
+   - Forced liquidation at **$0.0095**
    
 ### 2.2 Market Manipulation Principle: Short Squeeze
 
@@ -149,8 +149,8 @@ The core of the incident involved a "short squeeze" operation, executed as follo
 ### 2.3 Short Squeeze Operation Steps:
 
 1. **Opening Short Positions**:
-   - Traders opened short positions on JELLYJELLY on Hyperliquid worth <span>$6<span> million, betting on price decline
-   - Assuming 10x leverage, the actual margin requirement might have been only <span>$600,000<span>
+   - Traders opened short positions on JELLYJELLY on Hyperliquid worth **$6** million, betting on price decline
+   - Assuming 10x leverage, the actual margin requirement might have been only **$600,000**
 
 2. **Pushing Up Spot Prices**:
    - Subsequently, traders made large purchases of JELLYJELLY tokens on-chain (likely on Solana's spot market), driving the price up nearly 500%
@@ -163,10 +163,10 @@ The core of the incident involved a "short squeeze" operation, executed as follo
 
 ### 2.4 Example Principle:
 
-Assuming JELLYJELLY's original price was <span>$0.002<span>, with traders shorting <span>$6<span> million (10x leverage):
-- Traders use <span>$1<span> million to buy tokens in the spot market, pushing price to <span>$0.01<span>
-- During short liquidation, HLP buys at <span>$0.01<span>, traders lose <span>$6<span> million (short position value)
-- Spot market sales could yield up to <span>$5<span> million (depending on purchase volume), significantly reducing net losses or potentially turning profitable
+Assuming JELLYJELLY's original price was **~$0.002**, with traders shorting **$6** million (10x leverage):
+- Traders use **$1** million to buy tokens in the spot market, pushing price to **~$0.01**
+- During short liquidation, HLP buys at **~$0.01**, traders lose **$6** million (short position value)
+- Spot market sales could yield up to **$5** million (depending on purchase volume), significantly reducing net losses or potentially turning profitable
 
 ### 2.5. Role of Hyperliquid's HLP Vault
 
@@ -177,8 +177,8 @@ Hyperliquid's HLP (Hyperliquidity Provider) vault is a decentralized liquidity p
 - Maintaining operations through trading fees and liquidation profits
 
 During this incident:
-- JELLYJELLY's price surge led to unrealized losses of <span>$12<span> million on short positions, putting immense pressure on the HLP vault
-- If liquidations executed at market price (<span>$0.01<span>), HLP would lose millions by buying tokens at high prices to close positions
+- JELLYJELLY's price surge led to unrealized losses of **$12** million on short positions, putting immense pressure on the HLP vault
+- If liquidations executed at market price (**~$0.01**), HLP would lose millions by buying tokens at high prices to close positions
 
 ### 2.6. Hyperliquid's Response: Trade Cancellation and Forced Liquidation
 
@@ -190,11 +190,11 @@ Hyperliquid's validators detected anomalies (possibly from on-chain data or trad
    - Suspended market activity to prevent further price manipulation and losses
 
 2. **Forced Liquidation**:
-   - Settled all positions at <span>$0.0095<span> (below market peak but above initial price)
+   - Settled all positions at **$0.0095** (below market peak but above initial price)
    - Likely based on traders' initial entry price or internal algorithms to avoid HLP buying at peak prices
 
 ### 2.8 Results:
-- HLP ultimately closed positions at lower prices, turning a <span>$700,000<span> profit
+- HLP ultimately closed positions at lower prices, turning a **$700,000** profit
 - Traders' squeeze strategy failed as Hyperliquid didn't liquidate at expected market peaks
 
 ### 2.9 Technical Principles:
@@ -241,51 +241,51 @@ The way price manipulators attempted to profit from manipulating JELLYJELLY toke
 The core strategy of price manipulators was to utilize perpetual futures leverage and spot market price correlation to generate profits through a "Short Squeeze." Here's their plan:
 
 Step 1: Opening Large Short Positions
-- Manipulators opened <span>$6<span> million worth of JELLYJELLY short positions on Hyperliquid
+- Manipulators opened **$6** million worth of JELLYJELLY short positions on Hyperliquid
 - A short position means "borrowing tokens to sell, expecting to buy back at a lower price and profit from the difference"
-- Assuming an initial price of <span>$0.002<span>, a <span>$6<span> million short position equals selling 30 million JELLYJELLY tokens (<span>$6<span> million ÷ <span>$0.002<span> = 30 million)
-- They likely used high leverage (e.g., 10x), only putting up <span>$600,000<span> as margin
+- Assuming an initial price of **~$0.002**, a **$6** million short position equals selling 30 million JELLYJELLY tokens (**$6** million ÷ **~$0.002** = 30 million)
+- They likely used high leverage (e.g., 10x), only putting up **$600,000** as margin
 
 Step 2: Pushing Up Spot Market Prices
-- Manipulators then used their own funds (e.g., <span>$1<span> million) to buy large amounts of JELLYJELLY tokens on-chain (like Solana's spot market)
+- Manipulators then used their own funds (e.g., **$1** million) to buy large amounts of JELLYJELLY tokens on-chain (like Solana's spot market)
 - Since JELLYJELLY is a low market cap, low liquidity token (total market value of only several million), a small amount of capital could significantly drive up the price
-- They managed to push the price from <span>$0.002<span> to <span>$0.01<span> (5x increase)
+- They managed to push the price from **~$0.002** to **~$0.01** (5x increase)
 
 Step 3: Short Position Liquidation and Spot Market Profits
-In the perpetual futures market, when spot prices rose to <span>$0.01<span>, the short positions generated massive unrealized losses:
-- Initial sell value: 30 million tokens × <span>$0.002<span> = <span>$600,000<span>
-- Current buyback cost: 30 million tokens × <span>$0.01<span> = <span>$3<span> million
-- Unrealized loss: <span>$3<span> million - <span>$600,000<span> = <span>$2.4<span> million
+In the perpetual futures market, when spot prices rose to **~$0.01**, the short positions generated massive unrealized losses:
+- Initial sell value: 30 million tokens × **~$0.002** = **$600,000**
+- Current buyback cost: 30 million tokens × **~$0.01** = **$3** million
+- Unrealized loss: **$3** million - **$600,000** = **$2.4** million
 
-If losses exceed the margin (<span>$600,000<span>), the short position would be liquidated, requiring Hyperliquid's HLP vault to buy back 30 million tokens at <span>$0.01<span> to close the position.
+If losses exceed the margin (**$600,000**), the short position would be liquidated, requiring Hyperliquid's HLP vault to buy back 30 million tokens at **~$0.01** to close the position.
 
-Manipulators planned to sell their previously purchased tokens in the spot market at <span>$0.01<span>:
-- Assume they bought <span>$500,000<span> worth of tokens at <span>$0.002<span> (25 million tokens)
-- Selling at <span>$0.01<span>: 25 million × <span>$0.01<span> = <span>$2.5<span> million
-- Spot market profit: <span>$2.5<span> million - <span>$500,000<span> = <span>$2<span> million
+Manipulators planned to sell their previously purchased tokens in the spot market at **~$0.01**:
+- Assume they bought **$500,000** worth of tokens at **~$0.002** (25 million tokens)
+- Selling at **~$0.01**: 25 million × **~$0.01** = **$2.5** million
+- Spot market profit: **$2.5** million - **$500,000** = **$2** million
 
 Step 4: Calculating Net Profit
-- Short position liquidation loss: <span>$2.4<span> million
-- Spot market profit: <span>$2<span> million
-- Net result: <span>$2<span> million - <span>$2.4<span> million = <span>-$400,000<span> (small loss, but could be profitable with larger spot purchases)
+- Short position liquidation loss: **$2.4** million
+- Spot market profit: **$2** million
+- Net result: **$2** million - **$2.4** million = **-$400,000** (small loss, but could be profitable with larger spot purchases)
 
-If manipulators invested more to push prices higher (e.g., to <span>$0.02<span>) or had larger short positions, profits could be higher.
+If manipulators invested more to push prices higher (e.g., to **~$0.02**), or had larger short positions, profits could be higher.
 
 ### 3.3 Real-Life Example
 Imagine you're at a farmers market:
-1. You borrow 100 apples (short position), sell them for <span>$1<span> each, making <span>$100<span>, promising to return them later
-2. You buy 50 apples in another market for <span>$50<span>, then spread rumors about "apple prices rising," pushing the price to <span>$5<span> each
-3. The person who lent you apples sees the <span>$5<span> price, fears you won't repay, and forces you to buy back now. You spend <span>$500<span> buying 100 apples to repay, losing <span>$400<span>
-4. But you sell your 50 apples in the other market for <span>$5<span> each, making <span>$250<span> (<span>$5<span> each × 50)
-5. Total: <span>-$400<span> (short position) + <span>$250<span> (spot) = <span>-$150<span> net loss
-6. If you had bought more apples (e.g., 100), making <span>$500<span>, you could have netted <span>$100<span> profit
+1. You borrow 100 apples (short position), sell them for **$1** each, making **$100**, promising to return them later
+2. You buy 50 apples in another market for **$50**, then spread rumors about "apple prices rising," pushing the price to **$5** each
+3. The person who lent you apples sees the **$5** price, fears you won't repay, and forces you to buy back now. You spend **$500** buying 100 apples to repay, losing **$400**
+4. But you sell your 50 apples in the other market for **$5** each, making **$250** (**$5** each × 50)
+5. Total: **-$400** (short position) + **$250** (spot) = **-$150** net loss
+6. If you had bought more apples (e.g., 100), making **$500**, you could have netted **$100** profit
 
 Price manipulators used similar tactics, first borrowing to sell short, then pushing prices up to profit from spot sales.
 
 ### 3.4 Why Didn't the Manipulators Profit This Time?
-The manipulators' plan relied on Hyperliquid liquidating short positions at market highs (<span>$0.01<span>), but Hyperliquid detected the anomaly:
+The manipulators' plan relied on Hyperliquid liquidating short positions at market highs (**~$0.01**), but Hyperliquid detected the anomaly:
 - They cancelled JELLYJELLY perpetual futures trading
-- Forced liquidation at a lower fixed price (<span>$0.0095<span>) instead of market peak
+- Forced liquidation at a lower fixed price (**$0.0095**) instead of market peak
 
 Results:
 - Short position liquidation losses were contained (possibly less than expected)
@@ -319,7 +319,7 @@ The reason why the JELLYJELLY incident (market manipulation leading to potential
 ### 4.2 Liquidation Mechanism Vulnerabilities and Intervention Capabilities
 
 #### Hyperliquid:
-- In the JELLYJELLY incident, manipulators exploited low liquidity characteristics by opening <span>$6<span> million short positions and pushing up spot prices to trigger liquidations for profit. With HLP as a passive counterparty and JELLYJELLY's shallow market depth, HLP faced unrealized losses up to <span>$12<span> million.
+- In the JELLYJELLY incident, manipulators exploited low liquidity characteristics by opening **$6** million short positions and pushing up spot prices to trigger liquidations for profit. With HLP as a passive counterparty and JELLYJELLY's shallow market depth, HLP faced unrealized losses up to **$12** million.
 - Hyperliquid's liquidations rely on on-chain data and preset rules, preventing real-time manual intervention. The issue was ultimately resolved through validator voting to cancel trades and force liquidations, exposing mechanism vulnerabilities against market manipulation.
 - Decentralized systems lack adequate protection for small-cap tokens, making them vulnerable to "short squeeze" strategies.
 
