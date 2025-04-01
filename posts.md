@@ -2,6 +2,7 @@
 layout: page
 title: Posts
 permalink: /posts/
+ref: posts
 ---
 
 <div class="posts-page">
