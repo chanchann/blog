@@ -3,7 +3,7 @@ layout: post
 title: "React Basic Concepts"
 author: "chanchan"
 categories: journal
-tags: [documentation,sample]
+tags: [react]
 image: mountains.jpg
 toc: true
 ---

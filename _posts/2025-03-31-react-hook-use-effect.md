@@ -3,7 +3,7 @@ layout: post
 title: "React Hook: useEffect Explained"
 author: "chanchan"
 categories: journal
-tags: [documentation,sample]
+tags: [react]
 image: mountains.jpg
 toc: true
 ---

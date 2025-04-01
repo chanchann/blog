@@ -3,7 +3,7 @@ layout: post
 title: "Concurrent Capabilities of Go net/http Package"
 author: "chanchan"
 categories: journal
-tags: [documentation,sample]
+tags: [go,http]
 image: mountains.jpg
 toc: true
 ---

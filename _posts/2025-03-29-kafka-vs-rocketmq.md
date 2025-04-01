@@ -3,7 +3,7 @@ layout: post
 title: "RocketMQ VS Kafka"
 author: "chanchan"
 categories: journal
-tags: [documentation,sample]
+tags: [kafka,rocketmq]
 image: mountains.jpg
 toc: true
 ---

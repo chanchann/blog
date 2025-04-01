@@ -3,7 +3,7 @@ layout: post
 title: "RocketMQ VS Kafka for Binance Trading Data"
 author: "chanchan"
 categories: journal
-tags: [documentation,sample]
+tags: [kafka,rocketmq]
 image: mountains.jpg
 toc: true
 ---
