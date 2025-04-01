@@ -143,6 +143,7 @@ Used to share global state in the component tree, avoiding prop drilling.
 
 #### Detailed Example:
 
+{% raw %}
 ```tsx
 import { createContext, useContext, useState } from 'react';
 
@@ -178,6 +179,7 @@ const ThemedComponent: React.FC = () => {
   );
 };
 ```
+{% endraw %}
 
 ## 3. TypeScript and React Integration
 
@@ -342,115 +344,3 @@ Use useState and useContext.
 ```bash
 npm install @reduxjs/toolkit react-redux @types/react-redux
 ```
-
-#### Example:
-
-```tsx
-import { configureStore, createSlice } from '@reduxjs/toolkit';
-import { Provider, useDispatch, useSelector } from 'react-redux';
-
-// Define state type
-interface CounterState {
-  value: number;
-}
-
-// Create Slice
-const counterSlice = createSlice({
-  name: 'counter',
-  initialState: { value: 0 } as CounterState,
-  reducers: {
-    increment: state => { state.value += 1; },
-  },
-});
-
-const store = configureStore({ reducer: counterSlice.reducer });
-export const { increment } = counterSlice.actions;
-
-const Counter: React.FC = () => {
-  const count = useSelector((state: CounterState) => state.value);
-  const dispatch = useDispatch();
-
-  return (
-    <div>
-      <p>Count: {count}</p>
-      <button onClick={() => dispatch(increment())}>Increment</button>
-    </div>
-  );
-};
-
-const App: React.FC = () => (
-  <Provider store={store}>
-    <Counter />
-  </Provider>
-);
-```
-
-## 7. Styling
-
-### styled-components
-
-#### Installation:
-
-```bash
-npm install styled-components @types/styled-components
-```
-
-#### Detailed Example:
-
-```tsx
-import styled from 'styled-components';
-
-const Button = styled.button<{ primary?: boolean }>`
-  background: ${props => (props.primary ? 'blue' : 'gray')};
-  color: white;
-  padding: 10px;
-`;
-
-const App: React.FC = () => (
-  <div>
-    <Button primary>Primary Button</Button>
-    <Button>Secondary Button</Button>
-  </div>
-);
-```
-
-## 8. Build Tools
-
-### Vite
-
-#### Quick Project Creation:
-
-```bash
-npm create vite@latest my-app -- --template react-ts
-cd my-app
-npm install
-npm run dev
-```
-
-Advantages: Fast hot reload, build speed superior to Create React App.
-
-## 9. Best Practices
-
-- **Component Splitting**: Break UI into small pieces, like `<Header>`, `<Footer>`.
-- **Type Safety**: Define types for all function return values and props.
-- **Code Organization**:
-  ```
-  src/
-    components/
-    hooks/
-    utils/
-    pages/
-  ```
-- **Error Handling**:
-  ```tsx
-  const fetchData = async () => {
-    try {
-      const res = await fetch('url');
-      if (!res.ok) throw new Error('Network error');
-      const data = await res.json();
-      setData(data);
-    } catch (error) {
-      setError(error.message);
-    }
-  };
-  ```
