@@ -12,7 +12,7 @@ kramdown:
   math_engine_opts:
     preview: true
 
-google_analytics:
+google_analytics: G-WR5TYD5MZ5  # 替换为你的 GA4 测量 ID
 
 # cayman-blog date format
 # refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
@@ -34,7 +34,7 @@ plugins:
 target-blank:
     rel: nofollow
 
-header_page_refs: ['about', 'posts', 'contact']
+header_page_refs: ['about', 'posts', 'statistics', 'contact']
 
 # GitHub Comments (powered by utteranc.es)
 github_comments:

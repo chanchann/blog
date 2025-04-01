@@ -1,0 +1,39 @@
+.statistics-page {
+  .stat-section {
+    margin-bottom: 3em;
+    padding: 1em;
+    background: $background-color;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+    h2 {
+      color: $section-headings-color;
+      margin-bottom: 1em;
+      padding-bottom: 0.5em;
+      border-bottom: 1px solid $grey-color-light;
+    }
+  }
+
+  .chart-container {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    margin: 0 auto;
+
+    .error-message {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: $grey-color;
+      text-align: center;
+      font-size: 1.1em;
+    }
+  }
+
+  @media screen and (max-width: $on-palm) {
+    .chart-container {
+      height: 300px;
+    }
+  }
+} 
