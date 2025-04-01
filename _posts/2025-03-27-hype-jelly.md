@@ -3,7 +3,7 @@ layout: post
 title: "Hyperliquid JELLYJELLY Market Manipulation Incident!"
 author: "chanchan"
 categories: journal
-tags: [documentation,sample]
+tags: [crypto]
 image: mountains.jpg
 toc: true
 ---

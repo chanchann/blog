@@ -3,7 +3,7 @@ layout: post
 title: "Kafka Message Uniqueness and Ordering Guarantees"
 author: "chanchan"
 categories: journal
-tags: [documentation,sample]
+tags: [kafka]
 image: mountains.jpg
 toc: true
 ---

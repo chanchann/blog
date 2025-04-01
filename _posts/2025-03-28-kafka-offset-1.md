@@ -3,7 +3,7 @@ layout: post
 title: "Kafka Offsets Basic"
 author: "chanchan"
 categories: journal
-tags: [documentation,sample]
+tags: [kafka]
 image: mountains.jpg
 toc: true
 ---
