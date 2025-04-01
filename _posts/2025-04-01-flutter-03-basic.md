@@ -8,7 +8,7 @@ image: mountains.jpg
 toc: true
 ---
 
-Great! Flutter is an open-source UI framework developed by Google for building high-performance, cross-platform applications. It's primarily used for mobile development (iOS and Android) but also supports Web, desktop (Windows, macOS, Linux), and embedded devices. Here's a comprehensive and structured explanation of Flutter's core concepts:
+Flutter is an open-source UI framework developed by Google for building high-performance, cross-platform applications. It's primarily used for mobile development (iOS and Android) but also supports Web, desktop (Windows, macOS, Linux), and embedded devices. Here's a comprehensive and structured explanation of Flutter's core concepts:
 
 ## 1. Introduction to Flutter
 
