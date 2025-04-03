@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "React Basic Concepts"
+title: "React 01 : Basic Concepts"
 author: "chanchan"
 categories: journal
 tags: [react]
