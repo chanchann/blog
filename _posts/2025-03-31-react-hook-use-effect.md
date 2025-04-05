@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "React 04 : useEffect Explained"
+title: "React 03-02 : useEffect Explained"
 author: "chanchan"
 categories: journal
 tags: [react]
