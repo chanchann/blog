@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "react 03 : React Hooks"
+title: "React 03 : React Hooks"
 author: "chanchan"
 categories: journal
 tags: [react]
