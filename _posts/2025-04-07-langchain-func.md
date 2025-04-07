@@ -256,6 +256,7 @@ runParser();
 ---
 
 ### Feature Summary
+
 | Feature         | Description                      | Typical Use Cases         |
 |-----------------|----------------------------------|---------------------------|
 | Language Models | Call LLMs to generate text       | Text generation, Q&A      |
