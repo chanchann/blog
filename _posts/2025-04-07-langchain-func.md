@@ -16,6 +16,7 @@ toc: true
 - **Function Description**: Directly call large language models to generate text, supporting various LLMs (such as OpenAI, Hugging Face, etc.).
 - **Use Cases**: Basic text generation, Q&A, translation, etc.
 - **TypeScript Example**:
+
 ```python
 import { OpenAI } from "@langchain/openai";
 
@@ -34,6 +35,7 @@ runLLM();
 - **Function Description**: Dynamically generate structured prompts for easy reuse and parameterization.
 - **Use Cases**: Standardize inputs, reduce the hassle of manually writing prompts.
 - **TypeScript Example**:
+
 ```python
 import { PromptTemplate } from "@langchain/core/prompts";
 
