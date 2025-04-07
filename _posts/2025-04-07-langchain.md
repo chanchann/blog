@@ -3,7 +3,7 @@ layout: post
 title: "LangChain"
 author: "chanchan"
 categories: journal
-tags: [react]
+tags: [AI]
 image: mountains.jpg
 toc: true
 ---
