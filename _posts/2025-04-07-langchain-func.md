@@ -277,5 +277,5 @@ The core idea of LangChain is modularity and composability. You can think of the
 - Simple tasks: Use `LLMChain` directly.
 - Conversational systems: Add a `Memory`.
 - Knowledge base Q&A: Use `RetrievalQAChain` + `VectorStore`.
-- Complex tasks: Use `Agent` + `Tools`.
+- Complex tasks: Use `Agent` + `Tools`
 
