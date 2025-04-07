@@ -8,7 +8,7 @@ image: mountains.jpg
 toc: true
 ---
 
-`langchainjs` is the official JS implementation of LangChain, with features highly consistent with the Python version, suitable for Node.js environments.
+`langchainjs` is the official JS implementation of LangChain, with features highly consistent with the typescript version, suitable for Node.js environments.
 
 ---
 
@@ -17,7 +17,7 @@ toc: true
 - **Use Cases**: Basic text generation, Q&A, translation, etc.
 - **TypeScript Example**:
 
-```python
+```typescript
 import { OpenAI } from "@langchain/openai";
 
 async function runLLM() {
@@ -36,7 +36,7 @@ runLLM();
 - **Use Cases**: Standardize inputs, reduce the hassle of manually writing prompts.
 - **TypeScript Example**:
 
-```python
+```typescript
 import { PromptTemplate } from "@langchain/core/prompts";
 
 async function runPrompt() {
@@ -60,7 +60,8 @@ runPrompt();
   - `BufferMemory`: Saves complete history.
   - `SummaryMemory`: Generates conversation summaries.
 - **TypeScript Example**:
-```python
+
+```typescript
 import { BufferMemory } from "langchain/memory";
 import { OpenAI } from "@langchain/openai";
 import { ConversationChain } from "langchain/chains";
@@ -86,7 +87,8 @@ runMemory();
 - **Function Description**: Allow models to call external tools (such as search, calculator, APIs).
 - **Use Cases**: Extend LLM capabilities, solve knowledge and computation limitations.
 - **TypeScript Example**:
-```python
+
+```typescript
 import { SerpAPI } from "@langchain/community/tools/serpapi";
 import { OpenAI } from "@langchain/openai";
 import { AgentExecutor, createReactAgent } from "langchain/agents";
@@ -111,7 +113,8 @@ runTool();
 - **Use Cases**: Build knowledge base Q&A systems.
 - **Process**: Load documents → Split → Embed → Store → Retrieve.
 - **TypeScript Example**:
-```python
+
+```typescript
 import { TextLoader } from "langchain/document_loaders/fs/text";
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { OpenAIEmbeddings } from "@langchain/openai";
@@ -147,7 +150,8 @@ runRetrieval();
   - `LLMChain`: Basic chain.
   - `RetrievalQAChain`: Retrieval + Q&A.
 - **TypeScript Example**:
-```python
+
+```typescript
 import { OpenAI } from "@langchain/openai";
 import { PromptTemplate } from "@langchain/core/prompts";
 import { LLMChain } from "langchain/chains";
@@ -173,7 +177,8 @@ runChain();
 - **Function Description**: Allow models to dynamically select tools and execute multi-step tasks.
 - **Use Cases**: Handle complex, open-ended problems.
 - **TypeScript Example** (see Tools section, agent example already included):
-```python
+
+```typescript
 // Reuse the agent code from the Tools example
 ```
 
@@ -183,7 +188,8 @@ runChain();
 - **Function Description**: Support loading external data in various formats (such as TXT, PDF, webpages).
 - **Use Cases**: Provide data sources for indexing and retrieval.
 - **TypeScript Example**:
-```python
+
+```typescript
 import { PDFLoader } from "@langchain/community/document_loaders/fs/pdf";
 
 async function runLoader() {
@@ -201,7 +207,8 @@ runLoader();
 - **Function Description**: Convert text to vectors for semantic comparison and retrieval.
 - **Use Cases**: Support vector storage and similarity search.
 - **TypeScript Example**:
-```python
+
+```typescript
 import { OpenAIEmbeddings } from "@langchain/openai";
 
 async function runEmbeddings() {
@@ -219,7 +226,8 @@ runEmbeddings();
 - **Function Description**: Parse LLM outputs into structured data (such as JSON).
 - **Use Cases**: Standardize model outputs.
 - **TypeScript Example**:
-```python
+
+```typescript
 import { StructuredOutputParser } from "@langchain/core/output_parsers";
 import { PromptTemplate } from "@langchain/core/prompts";
 import { OpenAI } from "@langchain/openai";
