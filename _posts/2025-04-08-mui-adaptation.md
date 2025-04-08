@@ -91,7 +91,7 @@ const theme = createTheme({
 
 - **Example**:
 ```jsx
-{% raw %}
+
 import { useMediaQuery } from '@mui/material';
 
 function ResponsiveComponent() {
@@ -102,13 +102,13 @@ function ResponsiveComponent() {
     </div>
   );
 }
-{% endraw %}
+
 ```
 - **Combined with Theme**:
 ```jsx
-{% raw %}
+
 const isSmallScreen = useMediaQuery(theme => theme.breakpoints.down('sm'));
-{% endraw %}
+
 ```
 - **Purpose**: Dynamically switch components, styles, or logic.
 
@@ -117,7 +117,7 @@ The `sx` property supports responsive writing in object form, defining different
 
 - **Example**:
 ```jsx
-{% raw %}
+
 import Box from '@mui/material/Box';
 
 function ResponsiveBox() {
@@ -133,7 +133,7 @@ function ResponsiveBox() {
     </Box>
   );
 }
-{% endraw %}
+
 ```
 - **Effect**:
   - `xs`: Width 100%.
@@ -145,11 +145,11 @@ In v4, the `Hidden` component was used to hide content based on screen size, but
 
 - **Alternative**:
 ```jsx
-{% raw %}
+
 <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
   Only displayed on small screens and above
 </Box>
-{% endraw %}
+
 ```
 
 ---
@@ -161,7 +161,7 @@ Material-UI adopts a "Mobile-First" strategy by default, defining styles for sma
 
 - **Example**:
 ```jsx
-{% raw %}
+
 <Box
   sx={{
     fontSize: '16px', // mobile default
@@ -172,34 +172,34 @@ Material-UI adopts a "Mobile-First" strategy by default, defining styles for sma
 >
   Adaptive Text
 </Box>
-{% endraw %}
+
 ```
 
 #### (2) **Dynamic Spacing Adjustment**
 Use the theme's `spacing` function to dynamically adjust padding and margin:
 ```jsx
-{% raw %}
+
 <Box sx={{ p: { xs: 1, sm: 2, md: 4 } }}>
   Adaptive Padding
 </Box>
-{% endraw %}
+
 ```
 
 #### (3) **Conditional Component Rendering**
 Combine with `useMediaQuery` to render different components:
 ```jsx
-{% raw %}
+
 function ResponsiveLayout() {
   const isMobile = useMediaQuery('(max-width:600px)');
   return isMobile ? <MobileView /> : <DesktopView />;
 }
-{% endraw %}
+
 ```
 
 #### (4) **Responsive Typography**
 The `Typography` component supports responsive adjustment of `variant`:
 ```jsx
-{% raw %}
+
 import Typography from '@mui/material/Typography';
 
 function ResponsiveText() {
@@ -209,7 +209,7 @@ function ResponsiveText() {
     </Typography>
   );
 }
-{% endraw %}
+
 ```
 
 ---
@@ -218,7 +218,7 @@ function ResponsiveText() {
 Below is a comprehensive example showing how to combine `Grid`, `sx`, and `useMediaQuery` to implement a complex layout:
 
 ```jsx
-{% raw %}
+
 import React from 'react';
 import { Grid, Box, Typography, useMediaQuery } from '@mui/material';
 
@@ -257,7 +257,7 @@ function ResponsivePage() {
 }
 
 export default ResponsivePage;
-{% endraw %}
+
 ```
 
 - **Effect**:

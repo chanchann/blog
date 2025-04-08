@@ -110,7 +110,7 @@ React's `Context API` allows state to be shared across components, avoiding prop
 
 **Example:**
 ```jsx
-{% raw %}
+
 import React, { createContext, useContext, useState } from 'react';
 
 const CountContext = createContext();
@@ -138,7 +138,7 @@ function Child() {
     </div>
   );
 }
-{% endraw %}
+
 ```
 - `createContext` creates a context, `Provider` provides the state, and `useContext` consumes the state.
 - Suitable for global state management in small to medium-sized applications, such as themes, user information, etc.
@@ -163,7 +163,7 @@ Redux is the most popular state management library in the React ecosystem, based
 
 **Example:**
 ```jsx
-{% raw %}
+
 import { createStore } from 'redux';
 import { Provider, useDispatch, useSelector } from 'react-redux';
 
@@ -201,7 +201,7 @@ function App() {
     </Provider>
   );
 }
-{% endraw %}
+
 ```
 **Advantages:**
 - Predictable state updates (pure functions).
@@ -217,7 +217,7 @@ Zustand is a lightweight state management library with a concise API, suitable f
 
 **Example:**
 ```jsx
-{% raw %}
+
 import create from 'zustand';
 
 const useStore = create((set) => ({
@@ -234,7 +234,7 @@ function Counter() {
     </div>
   );
 }
-{% endraw %}
+
 ```
 **Advantages:**
 - Simple API, no boilerplate code.
@@ -248,7 +248,7 @@ Recoil is a state management library launched by Facebook, designed specifically
 
 **Example:**
 ```jsx
-{% raw %}
+
 import { atom, useRecoilState } from 'recoil';
 
 const countState = atom({
@@ -265,7 +265,7 @@ function Counter() {
     </div>
   );
 }
-{% endraw %}
+
 ```
 **Advantages:**
 - Consistent with React's Hooks style.

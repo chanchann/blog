@@ -104,11 +104,11 @@ function App() {
 
 **Example**:
 ```jsx
-{% raw %}
+
 function ProtectedRoute({ isLoggedIn }) {
   return isLoggedIn ? <Dashboard /> : <Navigate to="/login" />;
 }
-{% endraw %}
+
 ```
 
 **Related concepts**:
@@ -165,7 +165,7 @@ Besides the core components above, several concepts are closely related to routi
 Here's a complete code snippet showing how these components work together:
 
 ```jsx
-{% raw %}
+
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, Link } from 'react-router-dom';
 
@@ -199,7 +199,7 @@ function App() {
     </Router>
   );
 }
-{% endraw %}
+
 ```
 
 ## V. React Router Workflow
