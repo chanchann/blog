@@ -119,7 +119,7 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <CountContext.Provider value={{ count, setCount }}>
+    <CountContext.Provider value={% raw %}{{ count, setCount }}{% endraw %}>
       <Parent />
     </CountContext.Provider>
   );

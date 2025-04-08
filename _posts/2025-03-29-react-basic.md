@@ -168,7 +168,7 @@ const App: React.FC = () => {
   const toggleTheme = () => setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={% raw %}{{ theme, toggleTheme }}{% endraw %}>
       <ThemedComponent />
     </ThemeContext.Provider>
   );
@@ -180,7 +180,7 @@ const ThemedComponent: React.FC = () => {
   const { theme, toggleTheme } = context;
 
   return (
-    <div style={{ background: theme === 'light' ? '#fff' : '#333', color: theme === 'light' ? '#000' : '#fff' }}>
+    <div style={% raw %}{{ background: theme === 'light' ? '#fff' : '#333', color: theme === 'light' ? '#000' : '#fff' }}{% endraw %}>
       <p>Current theme: {theme}</p>
       <button onClick={toggleTheme}>Toggle Theme</button>
     </div>
@@ -355,6 +355,4 @@ Use useState and useContext.
 
 #### Installation:
 
-```bash
-npm install @reduxjs/toolkit react-redux @types/react-redux
 ```

@@ -123,11 +123,11 @@ import Box from '@mui/material/Box';
 function ResponsiveBox() {
   return (
     <Box
-      sx={{
+      sx={% raw %}{{
         width: { xs: '100%', sm: '50%', md: '33%' },
         bgcolor: 'primary.main',
         p: 2,
-      }}
+      }}{% endraw %}
     >
       Adaptive Box
     </Box>
@@ -146,7 +146,7 @@ In v4, the `Hidden` component was used to hide content based on screen size, but
 - **Alternative**:
 ```jsx
 
-<Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+<Box sx={% raw %}{{ display: { xs: 'none', sm: 'block' } }}{% endraw %}>
   Only displayed on small screens and above
 </Box>
 
@@ -163,12 +163,12 @@ Material-UI adopts a "Mobile-First" strategy by default, defining styles for sma
 ```jsx
 
 <Box
-  sx={{
+  sx={% raw %}{{
     fontSize: '16px', // mobile default
     [theme.breakpoints.up('md')]: {
       fontSize: '24px', // medium screens and above
     },
-  }}
+  }}{% endraw %}
 >
   Adaptive Text
 </Box>
@@ -179,7 +179,7 @@ Material-UI adopts a "Mobile-First" strategy by default, defining styles for sma
 Use the theme's `spacing` function to dynamically adjust padding and margin:
 ```jsx
 
-<Box sx={{ p: { xs: 1, sm: 2, md: 4 } }}>
+<Box sx={% raw %}{{ p: { xs: 1, sm: 2, md: 4 } }}{% endraw %}>
   Adaptive Padding
 </Box>
 
@@ -204,7 +204,7 @@ import Typography from '@mui/material/Typography';
 
 function ResponsiveText() {
   return (
-    <Typography variant="h6" sx={{ fontSize: { xs: '1rem', md: '2rem' } }}>
+    <Typography variant="h6" sx={% raw %}{{ fontSize: { xs: '1rem', md: '2rem' } }}{% endraw %}>
       Adaptive Heading
     </Typography>
   );
@@ -226,23 +226,23 @@ function ResponsivePage() {
   const isMobile = useMediaQuery('(max-width:600px)');
 
   return (
-    <Box sx={{ p: 2 }}>
+    <Box sx={% raw %}{{ p: 2 }}{% endraw %}>
       <Grid container spacing={2}>
         {/* Sidebar: hidden on mobile, displayed on desktop */}
         <Grid
           item
           xs={12}
           md={3}
-          sx={{ display: { xs: 'none', md: 'block' } }}
+          sx={% raw %}{{ display: { xs: 'none', md: 'block' } }}{% endraw %}
         >
-          <Box sx={{ bgcolor: 'grey.200', p: 2 }}>
+          <Box sx={% raw %}{{ bgcolor: 'grey.200', p: 2 }}{% endraw %}>
             <Typography>Sidebar</Typography>
           </Box>
         </Grid>
 
         {/* Main content: adaptive width */}
         <Grid item xs={12} md={9}>
-          <Box sx={{ bgcolor: 'primary.light', p: 2 }}>
+          <Box sx={% raw %}{{ bgcolor: 'primary.light', p: 2 }}{% endraw %}>
             <Typography variant={isMobile ? 'h6' : 'h4'}>
               Main Content Area
             </Typography>
