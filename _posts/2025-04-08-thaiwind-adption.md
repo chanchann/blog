@@ -131,6 +131,7 @@ In React + TypeScript projects, Tailwind class names can be combined with state 
 
 #### Example:
 ```tsx
+{% raw %}
 import React, { useState, useEffect } from 'react';
 
 const App: React.FC = () => {
@@ -149,6 +150,7 @@ const App: React.FC = () => {
     </div>
   );
 };
+{% endraw %}
 ```
 Here, Tailwind class names are dynamically switched through JavaScript, although usually breakpoint prefixes directly are enough.
 
@@ -182,6 +184,7 @@ module.exports = {
 ### Practical Example
 Suppose you want to develop a card component that requires a single column on mobile and multiple columns on desktop:
 ```tsx
+{% raw %}
 const Card: React.FC = () => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
@@ -200,6 +203,7 @@ const Card: React.FC = () => {
     </div>
   );
 };
+{% endraw %}
 ```
 - Mobile: Single column layout, smaller text.
 - Tablet (sm): Two-column layout, slightly larger text.
