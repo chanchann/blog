@@ -6,21 +6,41 @@
 
 <img src="https://raw.githubusercontent.com/lorepirri/cayman-blog/master/thumbnail.png" alt="Thumbnail of cayman-blog" style="max-width:30%; border: 1px solid grey;"/> <img src="https://raw.githubusercontent.com/lorepirri/cayman-blog/master/thumbnail-mobile.gif" alt="Thumbnail of cayman-blog for mobile" style="max-width:30%;"/>
 
+## Netlify CMS
+
+This blog includes Netlify CMS for content management. To use it:
+
+1. Access the admin interface at `/admin` (e.g., https://chanchann.github.io/blog/admin/)
+2. Log in with your GitHub account (the one with push access to this repository)
+3. Create and edit blog posts through the web interface
+4. When you save, the CMS will commit changes to the repository automatically
+
+### Note on Netlify CMS Setup
+
+For Netlify CMS to work properly with GitHub authentication, you need to:
+
+1. Sign up for a Netlify account at [netlify.com](https://netlify.com) if you don't have one
+2. Connect your GitHub repository to Netlify
+3. Enable Identity service in your Netlify site settings
+4. Set up Git Gateway in Netlify to allow CMS access to your repository
+
+For detailed instructions, see the [Netlify CMS docs](https://www.netlifycms.org/docs/github-backend/).
+
 ## Install
 
-Cayman Blog Theme has been developed as a Jekyll theme gem for easier use. It is also 100% compatible with GitHub Pages — just with a more involved installation process according to whether you’re _running Jekyll v3.3+ and self-hosting_, or if you’re *hosting with GitHub Pages*.
+Cayman Blog Theme has been developed as a Jekyll theme gem for easier use. It is also 100% compatible with GitHub Pages — just with a more involved installation process according to whether you're _running Jekyll v3.3+ and self-hosting_, or if you're *hosting with GitHub Pages*.
 
 ## Self hosting
 
-If you’re running Jekyll v3.3+ and **self-hosting** you can quickly install the theme as Ruby gem:
+If you're running Jekyll v3.3+ and **self-hosting** you can quickly install the theme as Ruby gem:
 
-1. Add this line to your Jekyll site’s Gemfile:
+1. Add this line to your Jekyll site's Gemfile:
 
     ```
     gem "jekyll-theme-cayman-blog"
     ```
 
-2. Add this line to your Jekyll site’s _config.yml file:
+2. Add this line to your Jekyll site's _config.yml file:
 
     ```
     theme: jekyll-theme-cayman-blog
@@ -34,11 +54,11 @@ If you’re running Jekyll v3.3+ and **self-hosting** you can quickly install th
 
 ## Hosting with GitHub Pages
 
-If you’re *hosting your blog with GitHub Pages* you’ll have to consider this:
+If you're *hosting your blog with GitHub Pages* you'll have to consider this:
 
 :warning: As stated in the official [Jekyll documentation](https://jekyllrb.com/docs/themes/#installing-a-theme):
 
-> If you’re publishing your Jekyll site on [GitHub Pages](https://pages.github.com/), note that GitHub Pages supports only some gem-based themes. See [Supported Themes](https://pages.github.com/themes/) in GitHub’s documentation to see which themes are supported.
+> If you're publishing your Jekyll site on [GitHub Pages](https://pages.github.com/), note that GitHub Pages supports only some gem-based themes. See [Supported Themes](https://pages.github.com/themes/) in GitHub's documentation to see which themes are supported.
 
 Therefore, this theme, as well as many others, can not be installed in the same way as the ones officially supported by GitHub Pages (e.g. Cayman, Minima), a bit more effort has to be put on.
 
@@ -152,73 +172,5 @@ If you'd like to add your own custom styles:
 1. Create a file called `/assets/css/style.scss` in your site
 2. Add the following content to the top of the file, exactly as shown:
     ```scss
-    ---
-    ---
-
     @import "{{ site.theme }}";
     ```
-3. Add any custom CSS (or Sass, including imports) you'd like immediately after the `@import` line
-
-*Note: If you'd like to change the theme's Sass variables, you must set new values before the `@import` line in your stylesheet.*
-
-### Layouts
-
-If you'd like to change the theme's HTML layout:
-
-1. [Copy the original template](https://github.com/lorepirri/cayman-blog/blob/master/_layouts/default.html) from the theme's repository<br />(*Pro-tip: click "raw" to make copying easier*)
-2. Create a file called `/_layouts/default.html` in your site
-3. Paste the default layout content copied in the first step
-4. Customize the layout as you'd like
-
-### Sass variables
-
-If you'd like to change the theme's [Sass variables](https://github.com/lorepirri/cayman-blog/blob/master/_sass/variables.scss), set new values before the `@import` line in your stylesheet:
-
-```scss
-$section-headings-color: #0086b3;
-
-@import "{{ site.theme }}";
-```
-
-### Overriding GitHub-generated URLs
-
-Templates often rely on URLs supplied by GitHub such as links to your repository or links to download your project. If you'd like to override one or more default URLs:
-
-1. Look at [the template source](https://github.com/lorepirri/cayman-blog/blob/master/_layouts/default.html) to determine the name of the variable. It will be in the form of `{{ site.github.zip_url }}`.
-2. Specify the URL that you'd like the template to use in your site's `_config.yml`. For example, if the variable was `site.github.url`, you'd add the following:
-    ```yml
-    github:
-      zip_url: http://example.com/download.zip
-      another_url: another value
-    ```
-3. When your site is built, Jekyll will use the URL you specified, rather than the default one provided by GitHub.
-
-*Note: You must remove the `site.` prefix, and each variable name (after the `github.`) should be indent with two space below `github:`.*
-
-For more information, see [the Jekyll variables documentation](https://jekyllrb.com/docs/variables/).
-
-## Roadmap
-
-See the [open issues](https://github.com/lorepirri/cayman-blog/issues) for a list of proposed features (and known issues).
-
-## Project philosophy
-
-The Cayman Blog theme is intended to make it quick and easy for GitHub Pages users to create their first (or 100th) website. The theme should meet the vast majority of users' needs out of the box, erring on the side of simplicity rather than flexibility, and provide users the opportunity to opt-in to additional complexity if they have specific needs or wish to further customize their experience (such as adding custom CSS or modifying the default layout). It should also look great, but that goes without saying.
-
-## Contributing
-
-Interested in contributing to Cayman Blog? We'd love your help. Cayman Blog is an open source project, built one contribution at a time by users like you. See [the CONTRIBUTING file](docs/CONTRIBUTING.md) for instructions on how to contribute.
-
-### Previewing the theme locally
-
-If you'd like to preview the theme locally (for example, in the process of proposing a change):
-
-1. Clone down the theme's repository (`git clone https://github.com/lorepirri/cayman-blog`)
-2. `cd` into the theme's directory
-3. Run `script/bootstrap` to install the necessary dependencies
-4. Run `bundle exec jekyll serve` to start the preview server
-5. Visit [`localhost:4000`](http://localhost:4000) in your browser to preview the theme
-
-### Running tests
-
-The theme contains a minimal test suite, to ensure a site with the theme would build successfully. To run the tests, simply run `script/cibuild`. You'll need to run `script/bootstrap` once before the test script will work.
