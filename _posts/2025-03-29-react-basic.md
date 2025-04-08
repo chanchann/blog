@@ -22,6 +22,7 @@ The core idea of React is to break down UI into reusable components. Components 
 #### Detailed Example:
 
 ```tsx
+{% raw %}
 import React from 'react';
 
 // Define Props type
@@ -44,6 +45,7 @@ const Greeting: React.FC<GreetingProps> = ({ name, age }) => {
 const App: React.FC = () => {
   return <Greeting name="Alice" age={25} />;
 };
+{% endraw %}
 ```
 
 #### Notes:
@@ -62,6 +64,7 @@ Used to manage a component's local state.
 #### Detailed Example:
 
 ```tsx
+{% raw %}
 import { useState } from 'react';
 
 const Counter: React.FC = () => {
@@ -76,6 +79,7 @@ const Counter: React.FC = () => {
     </div>
   );
 };
+{% endraw %}
 ```
 
 Type inference: TypeScript can usually infer types, but complex states (like objects) need to be explicitly defined:
@@ -95,6 +99,7 @@ Used to handle side effects, such as data fetching, subscriptions, or DOM operat
 #### Detailed Example:
 
 ```tsx
+{% raw %}
 import { useEffect, useState } from 'react';
 
 const DataFetcher: React.FC = () => {
@@ -126,15 +131,18 @@ const DataFetcher: React.FC = () => {
     </ul>
   );
 };
+{% endraw %}
 ```
 
 Cleaning up side effects: If you have subscriptions or timers, remember to return a cleanup function:
 
 ```tsx
+{% raw %}
 useEffect(() => {
   const timer = setInterval(() => console.log('Tick'), 1000);
   return () => clearInterval(timer); // Clean up when component unmounts
 }, []);
+{% endraw %}
 ```
 
 ### useContext
@@ -197,10 +205,12 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ title, content, onClick }) => (
+  {% raw %}
   <div onClick={onClick}>
     <h2>{title}</h2>
     <p>{content}</p>
   </div>
+  {% endraw %}
 );
 ```
 
@@ -212,7 +222,7 @@ const Input: React.FC = () => {
     console.log(e.target.value);
   };
 
-  return <input type="text" onChange={handleChange} />;
+  return {% raw %}<input type="text" onChange={handleChange} />{% endraw %};
 };
 ```
 
@@ -302,6 +312,7 @@ React Router is a routing solution for single-page applications.
 ### Detailed Example:
 
 ```tsx
+{% raw %}
 import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
 
 const Home: React.FC = () => <h1>Home Page</h1>;
@@ -318,17 +329,20 @@ const App: React.FC = () => (
     </Routes>
   </BrowserRouter>
 );
+{% endraw %}
 ```
 
 ### Dynamic Routing:
 
 ```tsx
+{% raw %}
 <Route path="/user/:id" element={<UserProfile />} />
 
 const UserProfile: React.FC = () => {
   const { id } = useParams<{ id: string }>(); // Type annotation
   return <p>User ID: {id}</p>;
 };
+{% endraw %}
 ```
 
 ## 6. State Management
