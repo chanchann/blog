@@ -98,6 +98,7 @@ Result: The page displays "Hello from Context".
 `useContext` is commonly used for managing global state, such as theme switching. Here's a complete theme switching example:
 
 ```jsx
+{% raw %}
 import React, { createContext, useContext, useState } from 'react';
 
 // Create Context
@@ -135,6 +136,7 @@ function ThemedButton() {
 }
 
 export default App;
+{% endraw %}
 ```
 - The `App` component provides `theme` and `setTheme` through the `Provider`.
 - `ThemedButton` uses `useContext` to access and use these values.
@@ -149,6 +151,7 @@ export default App;
 
 **Note**: If you use Context directly without a `Provider`, you'll get the default value:
 ```jsx
+{% raw %}
 const MyContext = createContext('Default value');
 
 function Child() {
@@ -159,6 +162,7 @@ function Child() {
 function App() {
   return <Child />;
 }
+{% endraw %}
 ```
 
 ---
@@ -176,7 +180,9 @@ function App() {
    - If `value` is an object, a new reference is generated with each render, potentially triggering unnecessary re-renders even if the content hasn't changed.
    **Solution**: Optimize `value` using `useMemo`:
    ```jsx
+   {% raw %}
    const value = useMemo(() => ({ theme, setTheme }), [theme]);
+   {% endraw %}
    ```
 
 2. **Not Suitable for Complex State Logic**:
@@ -191,6 +197,7 @@ function App() {
 `useContext` is often paired with `useReducer` for more complex state management:
 
 ```jsx
+{% raw %}
 import React, { createContext, useContext, useReducer } from 'react';
 
 const CountContext = createContext();
@@ -229,6 +236,7 @@ function Counter() {
 }
 
 export default App;
+{% endraw %}
 ```
 - `useReducer` manages state logic, while `useContext` handles cross-component sharing.
 
