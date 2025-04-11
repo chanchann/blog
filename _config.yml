@@ -21,6 +21,12 @@ cayman-blog:
 
 theme: jekyll-theme-cayman
 
+# Collections
+collections:
+  novels:
+    output: true
+    permalink: /:collection/:name
+
 # social
 author: chanchan
 image: /thumbnail-jumbo.png
@@ -34,7 +40,7 @@ plugins:
 target-blank:
     rel: nofollow
 
-header_page_refs: ['about', 'posts', 'statistics', 'contact']
+header_page_refs: ['about', 'posts', 'novels', 'statistics', 'contact']
 
 # GitHub Comments (powered by utteranc.es)
 github_comments:
