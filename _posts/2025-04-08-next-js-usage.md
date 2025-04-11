@@ -89,13 +89,12 @@ Next.js is a powerful React-based framework designed to simplify web development
 #### 5. **Automatic Code Splitting**
 - **Description**: Splits JavaScript by page, loading only what’s needed, with dynamic imports for further optimization.
 - **Code Demo**:
+
   ```javascript
   // pages/dynamic.js
   import dynamic from "next/dynamic";
 
   const HeavyComponent = dynamic(() => import("../components/HeavyComponent"));
-
-The current date is April 07, 2025.
 
   export default function DynamicPage() {
     return (
@@ -106,11 +105,13 @@ The current date is April 07, 2025.
     );
   }
   ```
+
 - **Effect**: `HeavyComponent` loads only when required.
 
 #### 6. **Built-in CSS and Sass Support**
 - **Description**: Supports global CSS, modular CSS, and Sass out of the box.
 - **Code Demo** (Modular CSS):
+
   ```css
   /* styles/Home.module.css */
   .title {
@@ -125,7 +126,9 @@ The current date is April 07, 2025.
     return <h1 className={styles.title}>Hello Next.js</h1>;
   }
   ```
+
   **Sass** (requires `sass` package):
+
   ```scss
   // styles/global.scss
   $primary: #0070f3;
@@ -133,6 +136,7 @@ The current date is April 07, 2025.
     color: $primary;
   }
   ```
+
   ```javascript
   // pages/_app.js
   import "../styles/global.scss";
