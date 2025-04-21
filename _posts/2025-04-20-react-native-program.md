@@ -30,6 +30,7 @@ As a programmer looking to get started with **React Native**, I'll guide you thr
    - Verify: `node -v` and `npm -v`.
 
 2. **Install React Native CLI**:
+
    ```bash
    npm install -g react-native
    ```
@@ -38,6 +39,7 @@ As a programmer looking to get started with **React Native**, I'll guide you thr
    - Install Xcode from the App Store.
    - Install Xcode Command Line Tools: `xcode-select --install`.
    - Install CocoaPods for iOS dependencies:
+
      ```bash
      gem install cocoapods
      ```
@@ -48,18 +50,22 @@ As a programmer looking to get started with **React Native**, I'll guide you thr
    - Configure environment variables (`ANDROID_HOME` and `platform-tools` in PATH).
 
 5. **Optional: Install Expo CLI** (for a simpler start):
+
    ```bash
    npm install -g expo-cli
    ```
 
 #### Code: Create Your First Project
 Using React Native CLI:
+
+
 ```bash
 npx react-native init MyFirstApp
 cd MyFirstApp
 ```
 
 Using Expo:
+
 ```bash
 expo init MyFirstApp
 cd MyFirstApp
@@ -94,6 +100,7 @@ expo start
 
 #### Action: Explore `App.js`
 Open `App.js` in your project. It might look like this (React Native CLI default):
+
 ```jsx
 import React from 'react';
 import { SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native';
@@ -144,6 +151,7 @@ React Native builds on **React**, so you’ll use:
 Let’s create a counter app to learn components, state, and event handling.
 
 1. **Replace `App.js`** with the following:
+
 ```jsx
 import React, { useState } from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
@@ -206,6 +214,7 @@ export default App;
   - Example: `flexDirection: 'row'` vs. `'column'`.
 - No CSS; use camelCase (e.g., `backgroundColor` instead of `background-color`).
 - **Dimensions**: Use `Dimensions` API for screen size:
+
   ```jsx
   import { Dimensions } from 'react-native';
   const { width, height } = Dimensions.get('window');
@@ -220,6 +229,7 @@ Most apps need multiple screens. **React Navigation** is the go-to library for r
 
 #### Action: Add Navigation to Your App
 1. **Install React Navigation**:
+
    ```bash
    npm install @react-navigation/native @react-navigation/stack
    npm install react-native-screens react-native-safe-area-context
@@ -227,6 +237,7 @@ Most apps need multiple screens. **React Navigation** is the go-to library for r
 
 2. **For iOS (React Native CLI)**:
    Run `pod install` in the `ios/` folder:
+
    ```bash
    cd ios && pod install && cd ..
    ```
@@ -327,6 +338,7 @@ Most apps fetch data from APIs. React Native uses the **Fetch API** or libraries
    ```
 
 2. **Add a New Screen** to `App.js`:
+
 ```jsx
 // Add to existing imports
 import { useEffect, useState } from 'react';
@@ -426,6 +438,7 @@ const HomeScreen = ({ navigation }) => {
 
 #### Action: Add Debugging
 Add a log to the counter:
+
 ```jsx
 const HomeScreen = ({ navigation }) => {
   const [count, setCount] = useState(0);
@@ -461,6 +474,7 @@ Open Chrome DevTools (`Ctrl+Cmd+J`) during remote debugging to see logs.
 
 #### Knowledge Point: Best Practices
 - **Component Structure**: Break UI into reusable components.
+
   ```jsx
   const CounterButtons = ({ increment, decrement, reset }) => (
     <View style={styles.buttonContainer}>
@@ -476,6 +490,7 @@ Open Chrome DevTools (`Ctrl+Cmd+J`) during remote debugging to see logs.
 - **Code Organization**:
   - Create folders: `components/`, `screens/`, `styles/`, `utils/`.
   - Example:
+
     ```
     src/
       components/
@@ -488,6 +503,7 @@ Open Chrome DevTools (`Ctrl+Cmd+J`) during remote debugging to see logs.
         theme.js
     ```
 - **Type Safety**: Use TypeScript for larger projects.
+
   ```tsx
   interface Props {
     count: number;
@@ -500,6 +516,7 @@ Open Chrome DevTools (`Ctrl+Cmd+J`) during remote debugging to see logs.
 
 #### Action: Organize Your Code
 1. Create `src/screens/HomeScreen.js`:
+
 ```jsx
 import React, { useState } from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
@@ -546,6 +563,7 @@ export default HomeScreen;
 ```
 
 2. Update `App.js`:
+
 ```jsx
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
@@ -619,6 +637,7 @@ export default App;
   - Style with a theme (light/dark mode).
 
 **Starter Code for To-Do List**:
+
 ```jsx
 import React, { useState } from 'react';
 import { Button, FlatList, StyleSheet, Text, TextInput, View } from 'react-native';
