@@ -20,6 +20,7 @@ React Native is an open-source framework developed by Facebook for building mobi
 #### a. **React Fundamentals**
 React Native is built on **React**, so understanding React is crucial:
 - **Components**: The building blocks of the UI. React Native uses both **functional** and **class-based** components.
+
   ```jsx
   import React from 'react';
   import { Text, View } from 'react-native';
@@ -31,12 +32,16 @@ React Native is built on **React**, so understanding React is crucial:
   );
   export default App;
   ```
+
 - **JSX**: A syntax extension for JavaScript to describe UI elements.
 - **Props**: Pass data to components to make them dynamic.
+
   ```jsx
   const Greeting = ({ name }) => <Text>Hello, {name}!</Text>;
   ```
+
 - **State**: Manages dynamic data within a component using hooks like `useState`.
+
   ```jsx
   import React, { useState } from 'react';
   const Counter = () => {
@@ -55,6 +60,7 @@ Unlike React for web (which uses HTML tags like `<div>`), React Native provides 
 - **FlatList**: Optimized for rendering long lists of data.
 
 Example of a simple UI:
+
 ```jsx
 import { View, Text, Image, FlatList } from 'react-native';
 
@@ -78,6 +84,7 @@ Styling is done using JavaScript objects, not CSS, via the `style` prop:
 - Supports **Flexbox** for layout.
 - No cascading styles (like CSS); styles are scoped to components.
 - **StyleSheet** API is recommended for performance.
+
   ```jsx
   import { StyleSheet, Text, View } from 'react-native';
 
@@ -106,6 +113,7 @@ React Native doesn’t have a built-in navigation system, so libraries like **Re
 - **Tab Navigator**: For bottom/top tabs.
 - **Drawer Navigator**: For side menus.
 Example with React Navigation:
+
 ```jsx
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -128,6 +136,7 @@ For complex apps, state management libraries are used:
 - **Context API**: For global state without prop drilling.
 - **Third-Party Libraries**: Redux, MobX, or Zustand for advanced state management.
 Example with Context:
+
 ```jsx
 import React, { createContext, useContext, useState } from 'react';
 
@@ -174,6 +183,7 @@ Metro is the JavaScript bundler for React Native:
 To handle differences between iOS and Android:
 - **File Extensions**: Use `.ios.js` or `.android.js` for platform-specific files.
 - **Platform Module**:
+
   ```jsx
   import { Platform } from 'react-native';
 
@@ -183,12 +193,14 @@ To handle differences between iOS and Android:
     },
   };
   ```
+
 - **Native Modules**: Write custom native code (Swift/Objective-C for iOS, Kotlin/Java for Android) for features unavailable in React Native.
 
 ---
 
 ### 5. **Networking**
 React Native uses the **Fetch API** or libraries like **Axios** for HTTP requests:
+
 ```jsx
 import React, { useEffect, useState } from 'react';
 import { Text } from 'react-native';
