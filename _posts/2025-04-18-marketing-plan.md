@@ -3,7 +3,7 @@ layout: post
 title: "Marketing plan"
 author: "chanchan"
 categories: journal
-tags: [web]
+tags: [Marketing]
 image: mountains.jpg
 toc: true
 ---
