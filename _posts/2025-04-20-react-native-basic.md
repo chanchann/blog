@@ -112,6 +112,7 @@ React Native doesn’t have a built-in navigation system, so libraries like **Re
 - **Stack Navigator**: For screen transitions (like a stack of cards).
 - **Tab Navigator**: For bottom/top tabs.
 - **Drawer Navigator**: For side menus.
+
 Example with React Navigation:
 
 ```jsx
