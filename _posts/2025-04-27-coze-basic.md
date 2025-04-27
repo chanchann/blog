@@ -3,12 +3,13 @@ layout: post
 title: "Coze : Basic"
 author: "chanchan"
 categories: journal
-tags: [ai]
+tags: [AI]
 image: mountains.jpg
 toc: true
 ---
 
 Coze is a no-code AI chatbot development platform designed to enable users, regardless of programming experience, to create, customize, and deploy intelligent chatbots. Developed by ByteDance, Coze leverages large language models (LLMs) to provide a user-friendly interface for building bots that can handle a wide range of tasks, from customer service to personal assistance. 
+
 ---
 
 ### **What is Coze?**
