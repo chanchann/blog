@@ -95,7 +95,7 @@ func main() {
 
 - After frontend build (`npm run build`), deploy static files using a web server like nginx.
 - Deploy backend API separately, ensuring CORS is configured to allow your frontend domain.
-- Alternatively, use nginx as a proxy to forward API requests to the backend, avoiding CORS (though backend support is still required).
+- Alternatively, use nginx as a proxy to forward API requests to the backend, avoiding CORS 
 
 ### 1.4 Deployment Scenario
 Your deployment scenario includes:
