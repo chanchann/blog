@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Redering"
+title: "Next.js :Redering"
 author: "chanchan"
 categories: journal
-tags: [js]
+tags: [react]
 image: mountains.jpg
 toc: true
 ---

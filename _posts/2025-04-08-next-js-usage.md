@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Next.js Usage"
+title: "Next.js : Usage"
 author: "chanchan"
 categories: journal
-tags: [js]
+tags: [react]
 image: mountains.jpg
 toc: true
 ---
