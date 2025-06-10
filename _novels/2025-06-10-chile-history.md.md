@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chile History Basic"
+title: "Chile History 00 : Basic"
 date: 2024-05-01 12:00:00 +0800
 categories: [collection]
 ---
