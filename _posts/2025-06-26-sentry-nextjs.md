@@ -3,12 +3,12 @@ layout: post
 title: "Sentry : Nextjs"
 author: "chanchan"
 categories: journal
-tags: [business thinking]
+tags: [web]
 image: mountains.jpg
 toc: true
 ---
 
-Integrating Sentry with a Next.js application for both frontend and backend error tracking and performance monitoring is a powerful way to gain insights into your application’s health. Below, I’ll provide a detailed, step-by-step guide on how to set up Sentry in a Next.js project, covering both the frontend (client-side) and backend (server-side), along with key concepts and best practices. The explanation will be in English, as requested, and will include code examples, configuration details, and advanced features to ensure comprehensive understanding.
+Integrating Sentry with a Next.js application for both frontend and backend error tracking and performance monitoring is a powerful way to gain insights into your application’s health. Below, I’ll provide a detailed, step-by-step guide on how to set up Sentry in a Next.js project, covering both the frontend (client-side) and backend (server-side), along with key concepts and best practices. 
 
 ---
 
