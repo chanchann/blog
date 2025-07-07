@@ -8,218 +8,259 @@ image: mountains.jpg
 toc: true
 ---
 
-Integrating Sentry with a TypeScript Next.js project deployed on Cloudflare Pages, which operates without a Node.js environment, requires using the `@sentry/nextjs` SDK tailored for Cloudflare's edge runtime. Below is a step-by-step guide to help you set it up effectively.
+Sentry is an application monitoring platform that helps developers track errors, performance issues, and application health in real-time. It provides:
+
+1. **Error Monitoring**: Captures uncaught exceptions and manually reported errors with detailed stack traces, context, and breadcrumbs.
+2. **Performance Monitoring**: Tracks performance metrics like request latency, transaction durations, and slow API calls using distributed tracing.
+3. **Session Replay**: Records user sessions to help reproduce issues (not supported in Cloudflare Workers due to runtime limitations).
+4. **Logging**: Captures logs and custom events for debugging.
+5. **Source Maps**: Maps minified production code to your source code for readable stack traces.
+6. **Release Tracking**: Associates errors with specific code releases for easier debugging.
+
+Sentry supports JavaScript environments, including Node.js, browsers, and serverless platforms like Cloudflare Workers, through dedicated SDKs.
 
 ---
 
-### Steps to Integrate Sentry with a TypeScript Next.js Project on Cloudflare Pages
+### Key Concepts of Sentry
 
-1. **Install the Sentry SDK**
+1. **DSN (Data Source Name)**: A unique identifier for your Sentry project, used to send events to Sentry. It looks like `https://<key>@o<org_id>.ingest.sentry.io/<project_id>`.
+2. **Breadcrumbs**: A trail of events (e.g., user actions, HTTP requests) leading up to an error, providing context.
+3. **Integrations**: Plugins like `browserTracingIntegration` or `consoleLoggingIntegration` that extend Sentry’s functionality.
+4. **Tracing**: Tracks performance by creating spans for operations like HTTP requests or database queries.
+5. **Source Maps**: Maps minified code to source code, crucial for debugging in production.
+6. **Crons Monitoring**: Monitors scheduled tasks (e.g., Cloudflare Workers’ cron triggers).
+7. **Experiments**: Features like logging (`enableLogs`) that are in beta.
 
-   First, install the `@sentry/nextjs` package in your Next.js project:
-
-   ```bash
-   npm install @sentry/nextjs
-   ```
-
-   This SDK supports both browser and edge environments, which is compatible with Cloudflare Pages' edge runtime.[](https://www.npmjs.com/package/%40sentry/nextjs)
-
-2. **Run the Sentry Wizard**
-
-   Use the Sentry wizard to automate the setup process. Run the following command in your project directory:
-
-   ```bash
-   npx @sentry/wizard -i nextjs
-   ```
-
-   The wizard will:
-   - Create configuration files: `sentry.client.config.ts`, `sentry.server.config.ts`, and `sentry.edge.config.ts`.
-   - Add an example page (`/sentry-example-page`) and API route to test error tracking.
-   - Update `next.config.js` with Sentry settings.
-   - Create a `.sentryclirc` file with an auth token for source map uploads (added to `.gitignore`).
-   - Prompt you to log into Sentry and select a project to generate a DSN (Data Source Name).[](https://dev.to/max24816/how-to-integrate-sentry-to-nextjs-application-52a0)
-
-   After running the wizard, verify the generated files in your project root or `src` directory.
-
-3. **Configure Sentry for Cloudflare's Edge Runtime**
-
-   Cloudflare Pages uses the edge runtime, not Node.js, so you need to ensure Sentry is configured for the edge. The wizard generates `sentry.edge.config.ts` for this purpose. A typical configuration looks like this:
-
-   ```typescript
-   // sentry.edge.config.ts
-   import * as Sentry from "@sentry/nextjs";
-
-   Sentry.init({
-     dsn: process.env.NEXT_PUBLIC_SENTRY_DSN, // Use environment variable for DSN
-     tracesSampleRate: 1.0, // Capture 100% of transactions for tracing
-     debug: process.env.NODE_ENV === "development", // Enable debug in development
-   });
-   ```
-
-   Key points:
-   - Use `NEXT_PUBLIC_SENTRY_DSN` as an environment variable to securely store your DSN. Since this is a client-side variable, it’s safe for front-end exposure.[](https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/)
-   - Set `tracesSampleRate` to control performance tracing (adjust in production to reduce noise, e.g., `0.2` for 20% sampling).
-
-4. **Update `next.config.js`**
-
-   Ensure your `next.config.js` is configured to support Sentry and Cloudflare Pages. The wizard adds Sentry’s Webpack plugin for source map uploads. You also need to ensure compatibility with Cloudflare’s edge runtime:
-
-   ```javascript
-   // next.config.js
-   const { withSentryConfig } = require("@sentry/nextjs");
-
-   const nextConfig = {
-     reactStrictMode: true,
-     // Ensure edge runtime is used for routes
-     experimental: {
-       runtime: "edge",
-     },
-   };
-
-   module.exports = withSentryConfig(nextConfig, {
-     org: "your-org",
-     project: "your-project",
-     authToken: process.env.SENTRY_AUTH_TOKEN, // For source map uploads
-     silent: true, // Suppress logs during build
-     widenClientFileUpload: true, // Upload more source maps for better stack traces
-     hideSourceMaps: true, // Hide source maps from client bundles
-   });
-   ```
-
-   Add `SENTRY_AUTH_TOKEN` to your environment variables for source map uploads.[](https://www.shubhdeepchhabra.in/blog/sentry-for-nextjs-portfolio)
-
-5. **Set Up Environment Variables**
-
-   In Cloudflare Pages, add the following environment variables in the Cloudflare dashboard under `Settings > Environment Variables`:
-   - `NEXT_PUBLIC_SENTRY_DSN`: Your Sentry DSN from the Sentry dashboard.
-   - `SENTRY_AUTH_TOKEN`: Your Sentry auth token for source map uploads (found in Sentry’s project settings or `.sentryclirc`).
-
-   For local development, add these to your `.env.local` file:
-
-   ```env
-   NEXT_PUBLIC_SENTRY_DSN=https://your-dsn@o123.ingest.sentry.io/123
-   SENTRY_AUTH_TOKEN=your-auth-token
-   ```
-
-   Note: `NEXT_PUBLIC_` prefix is required for client-side variables in Next.js.[](https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/)
-
-6. **Configure Source Maps for Cloudflare**
-
-   Since Cloudflare Pages doesn’t use Node.js, source maps are critical for readable stack traces. The Sentry wizard configures source map uploads, but you need to ensure your build process supports Cloudflare’s requirements. Install the Cloudflare Next.js adapter:
-
-   ```bash
-   npm install --save-dev @cloudflare/next-on-pages
-   ```
-
-   Update your `package.json` scripts to build for Cloudflare Pages:
-
-   ```json
-   {
-     "scripts": {
-       "dev": "next dev",
-       "build": "next build",
-       "pages:build": "npx @cloudflare/next-on-pages",
-       "deploy": "npm run pages:build"
-     }
-   }
-   ```
-
-   Add the `nodejs_compat` flag in your Cloudflare Pages settings (`Settings > Bindings > Compatibility Flags`) to ensure compatibility with Sentry’s AsyncLocalStorage requirements.[](https://docs.sentry.io/platforms/javascript/guides/cloudflare/)[](https://medium.com/%40valoherie/how-to-host-and-deploy-next-js-app-on-cloudflare-a224b06d73d3)
-
-7. **Add Sentry Middleware for Cloudflare Pages**
-
-   To capture errors across your application, add the Sentry Pages Plugin as middleware in `functions/_middleware.ts`:
-
-   ```typescript
-   // functions/_middleware.ts
-   import * as Sentry from "@sentry/nextjs";
-
-   export const onRequest = [
-     Sentry.sentryPagesPlugin({
-       dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
-       tracesSampleRate: 1.0,
-     }),
-     // Add other middlewares here
-   ];
-   ```
-
-   If you need to access environment variables dynamically, use a function:
-
-   ```typescript
-   export const onRequest = Sentry.sentryPagesPlugin((context) => ({
-     dsn: context.env.NEXT_PUBLIC_SENTRY_DSN,
-     tracesSampleRate: 1.0,
-   }));
-   ```
-
-   Ensure this middleware is the first in the array to capture all exceptions in the execution chain.[](https://www.npmjs.com/package/%40sentry/cloudflare)[](https://developers.cloudflare.com/pages/functions/plugins/sentry/)
-
-8. **Test Sentry Integration**
-
-   The Sentry wizard creates an example page (`/sentry-example-page`) with a button to trigger a test error. Visit this page in your local development environment (`next dev`) or after deployment to Cloudflare Pages:
-
-   - Open `http://localhost:3000/sentry-example-page` (or your deployed URL).
-   - Click the “Throw error” button to trigger a test error.
-   - Check your Sentry dashboard (`sentry.io`) under the Issues page to verify the error was captured.[](https://docs.sentry.io/platforms/javascript/guides/nextjs/)
-
-   You can also manually capture errors in your code:
-
-   ```typescript
-   import * as Sentry from "@sentry/nextjs";
-
-   try {
-     // Your code
-     throw new Error("Test error");
-   } catch (error) {
-     Sentry.captureException(error);
-   }
-   ```
-
-9. **Deploy to Cloudflare Pages**
-
-   Deploy your Next.js app to Cloudflare Pages using either the Cloudflare dashboard or CLI:
-
-   - **Via Dashboard**: Connect your GitHub repository in the Cloudflare Pages tab, select your branch, and configure build settings (use `npm run pages:build` as the build command).[](https://medium.com/%40valoherie/how-to-host-and-deploy-next-js-app-on-cloudflare-a224b06d73d3)
-   - **Via CLI**: Run `npx @cloudflare/next-on-pages` to build, then deploy using `wrangler pages deploy`.
-
-   Ensure the `nodejs_compat` compatibility flag is enabled in Cloudflare Pages settings.[](https://medium.com/%40valoherie/how-to-host-and-deploy-next-js-app-on-cloudflare-a224b06d73d3)
-
-10. **Verify and Monitor**
-
-    After deployment, visit your deployed app, trigger errors, and check the Sentry dashboard for captured errors and performance traces. Use Sentry’s Issues, Traces, and Replays pages to analyze errors and performance metrics.[](https://docs.sentry.io/platforms/javascript/guides/nextjs/)
+For Cloudflare Workers, Sentry provides the `@sentry/cloudflare` SDK, designed to work with the Workers runtime, which differs from Node.js and browser environments due to its V8-based, serverless nature.
 
 ---
 
-### Additional Notes
+### Challenges with Next.js + Cloudflare Workers
 
-- **Edge Runtime Limitation**: Cloudflare Pages uses the edge runtime, so avoid Node.js-specific APIs in your Sentry configuration (e.g., `fs` or Node.js-only `@sentry/node` integrations). The `@sentry/nextjs` SDK handles this automatically.[](https://stackoverflow.com/questions/57195586/integrating-sentry-in-next-js-project)
-- **Source Maps**: Ensure source maps are uploaded correctly for readable stack traces. The `SENTRY_AUTH_TOKEN` and `withSentryConfig` in `next.config.js` handle this. If stack traces are unreadable, verify the `widenClientFileUpload` option and check your build logs.[](https://docs.sentry.io/platforms/javascript/guides/cloudflare/)
-- **Performance Monitoring**: Adjust `tracesSampleRate` in production to balance performance data collection and Sentry quota usage. A value of `0.2` is often sufficient.[](https://codingcat.dev/podcast/how-to-add-sentry-to-next-js-the-right-way)
-- **Troubleshooting**: If errors aren’t appearing in Sentry, ensure the DSN is correct, the middleware is loaded first, and the `nodejs_compat` flag is set. Enable `debug: true` in Sentry’s configuration for local debugging.[](https://github.com/getsentry/sentry-javascript/issues/11920)
+Cloudflare Workers use the `workerd` runtime, which has limitations compared to Node.js:
+- **No full Node.js API**: Only a subset of Node.js APIs is available via compatibility flags (`nodejs_compat` or `nodejs_als`).
+- **Event Loop Constraints**: Asynchronous tasks (e.g., Sentry’s event sending) may be canceled if not handled properly, requiring `event.waitUntil()` to ensure completion.
+- **Middleware Limitations**: Next.js middleware running on Workers has issues with top-level async operations (e.g., `randomUUID`), which can conflict with Sentry’s initialization.
+- **Source Maps**: Workers’ minified code requires source maps for readable stack traces, which need special handling.
+
+The `@sentry/nextjs` SDK is optimized for Node.js-based Next.js deployments (e.g., Vercel), but it’s not fully compatible with Cloudflare Workers due to runtime differences. Instead, you’ll use `@sentry/cloudflare` and configure it to work with Next.js.
 
 ---
 
-### Example Manual Error Capture
+### Step-by-Step Integration Guide
 
-To capture custom events or add context:
+Here’s how to integrate Sentry with a Next.js + TypeScript project deployed on Cloudflare Workers using the `@opennextjs/cloudflare` adapter.
 
-```typescript
-import * as Sentry from "@sentry/nextjs";
+#### 1. Set Up a Sentry Project
+- Log in to [Sentry.io](https://sentry.io) and create a new project.
+- Choose **JavaScript** as the platform (Cloudflare Workers isn’t listed explicitly but is supported via the `@sentry/cloudflare` SDK).
+- Note the **DSN** provided by Sentry for your project.
 
-// Set user context
-Sentry.setUser({ id: "user123", email: "user@example.com" });
+#### 2. Install Dependencies
+In your Next.js project, install the Sentry Cloudflare SDK and TypeScript types:
 
-// Add breadcrumbs
-Sentry.addBreadcrumb({
-  message: "User clicked checkout",
-  category: "user.action",
-});
-
-// Capture a manual error
-Sentry.captureException(new Error("Custom error in checkout flow"));
+```bash
+npm install @sentry/cloudflare @cloudflare/workers-types
 ```
 
-This helps provide richer context in Sentry’s dashboard.[](https://www.npmjs.com/package/%40sentry/nextjs)
+If you’re using the `nodejs_compat` flag in your `wrangler.toml`, also install Node.js types:
+
+```bash
+npm install -D @types/node
+```
+
+#### 3. Configure Wrangler for TypeScript and Compatibility
+Ensure your `wrangler.toml` is set up to support TypeScript and Sentry’s requirements:
+
+```toml
+name = "your-worker-name"
+compatibility_date = "2024-09-23" # Or later
+compatibility_flags = ["nodejs_als"] # Required for Sentry's AsyncLocalStorage
+main = "worker.js" # Entry point for your Worker
+
+[build]
+command = "npx @opennextjs/cloudflare"
+
+[build.upload]
+format = "modules"
+```
+
+- Run `wrangler types` to generate TypeScript types for your Worker’s bindings and runtime, which will create a `worker-configuration.d.ts` file.
+- Update your `tsconfig.json` to include the generated types:
+
+```json
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "strict": true,
+    "types": ["@cloudflare/workers-types", "./worker-configuration.d.ts"]
+  }
+}
+```
+
+#### 4. Initialize Sentry in Your Worker
+Since Next.js on Cloudflare Workers uses the `@opennextjs/cloudflare` adapter, you’ll wrap your Worker’s handler with Sentry. Create or modify the Worker entry point (e.g., `worker.ts`) to initialize Sentry.
+
+Example `worker.ts`:
+
+```typescript
+import * as Sentry from '@sentry/cloudflare';
+import { withSentry } from '@sentry/cloudflare';
+import { createRequestHandler } from '@opennextjs/cloudflare';
+
+// Initialize your Next.js app
+const app = createRequestHandler({
+  // Your OpenNext configuration
+});
+
+// Sentry configuration
+const sentryOptions = {
+  dsn: process.env.SENTRY_DSN || 'https://<your-dsn>@o0.ingest.sentry.io/<project-id>',
+  tracesSampleRate: 1.0, // Capture 100% of transactions for performance monitoring
+  sendDefaultPii: true, // Include request headers and IP (be cautious with PII)
+  release: process.env.CF_VERSION_METADATA?.id, // Use Cloudflare's version metadata
+  _experiments: {
+    enableLogs: true, // Enable logging to Sentry
+  },
+};
+
+// Wrap the Next.js handler with Sentry
+export default withSentry(sentryOptions, app);
+```
+
+- **DSN**: Replace with your Sentry project’s DSN.
+- **tracesSampleRate**: Set to `1.0` for full tracing or lower (e.g., `0.2`) to sample fewer transactions.
+- **release**: Use Cloudflare’s version metadata for release tracking.
+- **enableLogs**: Enables console logs to be sent to Sentry.
+
+#### 5. Handle Middleware (Optional)
+If your Next.js app uses middleware (e.g., `middleware.ts`), you may encounter issues with Sentry’s initialization due to top-level async operations. To work around this, use `wrapRequestHandler` instead of `sentryPagesPlugin`.
+
+Example `middleware.ts`:
+
+```typescript
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
+import * as Sentry from '@sentry/cloudflare';
+import { getRequestContext } from '@cloudflare/next-on-pages';
+
+export async function middleware(request: NextRequest) {
+  const context = getRequestContext();
+  const requestHandlerOptions = {
+    options: {
+      dsn: context.env.SENTRY_DSN,
+      tracesSampleRate: 1.0,
+    },
+    request,
+    context: context.platform.ctx,
+  };
+
+  return Sentry.wrapRequestHandler(requestHandlerOptions, () => NextResponse.next());
+}
+```
+
+- **getRequestContext**: Accesses Cloudflare’s environment and context.
+- **wrapRequestHandler**: Ensures Sentry captures errors in middleware without top-level async issues.
+
+#### 6. Upload Source Maps
+To make stack traces readable, upload source maps to Sentry. Configure your `wrangler.toml` to enable source map uploading:
+
+```toml
+[build.upload]
+source_maps = true
+```
+
+Use the Sentry CLI to upload source maps during deployment:
+
+```bash
+npm install -g @sentry/cli
+SENTRY_AUTH_TOKEN=<your-auth-token> sentry-cli sourcemaps upload --org <your-org> --project <your-project> ./dist
+```
+
+- Get your `SENTRY_AUTH_TOKEN` from Sentry’s settings.
+- Ensure your build process generates source maps (e.g., set `sourceMap: true` in your Webpack config if using a custom setup).
+
+#### 7. Capture Manual Events
+You can manually capture errors, messages, or breadcrumbs in your Next.js components or API routes:
+
+```typescript
+import * as Sentry from '@sentry/cloudflare';
+
+// In an API route or server-side function
+export async function GET(request: Request) {
+  try {
+    // Your logic
+    Sentry.addBreadcrumb({ message: 'Fetching data', level: 'info' });
+    throw new Error('Something went wrong');
+  } catch (error) {
+    Sentry.captureException(error);
+    return new Response('Error occurred', { status: 500 });
+  }
+}
+```
+
+#### 8. Instrument Cloudflare Bindings
+If your app uses Cloudflare bindings (e.g., D1 database, R2 storage), instrument them with Sentry:
+
+```typescript
+import * as Sentry from '@sentry/cloudflare';
+
+// Instrument D1 database
+const db = Sentry.instrumentD1WithSentry(env.DB);
+await db.prepare('SELECT * FROM table WHERE id = ?').bind(1).run();
+```
+
+#### 9. Monitor Cron Jobs
+If your Worker uses scheduled tasks, use `withMonitor` for cron monitoring:
+
+```typescript
+export default {
+  async scheduled(event: ScheduledEvent, env: Env, ctx: ExecutionContext) {
+    ctx.waitUntil(
+      Sentry.withMonitor('my-cron-job', async () => {
+        // Your cron logic
+      }, {
+        schedule: { type: 'crontab', value: '* * * * *' },
+        checkinMargin: 2,
+        maxRuntime: 10,
+      })
+    );
+  },
+};
+```
+
+#### 10. Deploy and Test
+- Deploy your Worker using `wrangler deploy`.
+- Test Sentry by throwing an intentional error (e.g., add `throw new Error('Test error')` in an API route).
+- Check Sentry’s dashboard to verify errors, performance traces, and logs.
+
+#### 11. Troubleshooting
+- **Errors not captured**: Ensure `nodejs_als` or `nodejs_compat` is set in `wrangler.toml`. Use `event.waitUntil()` for async Sentry operations.
+- **Middleware issues**: Avoid top-level async code in `middleware.ts`. Use `wrapRequestHandler` as shown above.
+- **Unreadable stack traces**: Verify source maps are uploaded and match your deployed code.
+- **Performance**: Set `tracesSampleRate` to a lower value (e.g., `0.2`) in production to reduce overhead.
 
 ---
 
+### Best Practices
+- **Environment Variables**: Store `SENTRY_DSN` in `wrangler.toml` or Cloudflare’s dashboard to avoid hardcoding.
+- **Minimal PII**: Disable `sendDefaultPii` if you don’t need user IPs or headers to comply with privacy regulations.
+- **Optimize Tracing**: Adjust `tracesSampleRate` based on your traffic to balance monitoring and cost.
+- **CI/CD Integration**: Automate source map uploads in your deployment pipeline using Sentry CLI.
+- **Testing Locally**: Use `wrangler dev` to test your Worker locally and verify Sentry integration.
+
+---
+
+### Limitations
+- **Session Replay**: Not supported in Cloudflare Workers due to runtime constraints.
+- **Middleware Compatibility**: `@sentry/nextjs` middleware integration may not work due to `randomUUID` issues. Use `@sentry/cloudflare`’s `wrapRequestHandler`.
+- **Tail Workers**: Cloudflare’s Sentry integration via Tail Workers is not supported for Pages projects and is limited to error reporting.
+
+---
+
+### References
+- Sentry Cloudflare SDK: [docs.sentry.io](https://docs.sentry.io/platforms/javascript/guides/cloudflare/)[](https://docs.sentry.io/platforms/javascript/guides/cloudflare/)
+- Cloudflare Workers Docs: [developers.cloudflare.com](https://developers.cloudflare.com/workers/)[](https://developers.cloudflare.com/workers/framework-guides/web-apps/nextjs/)
+- Next.js on Cloudflare: [developers.cloudflare.com](https://developers.cloudflare.com/pages/framework-guides/nextjs/)[](https://developers.cloudflare.com/pages/framework-guides/nextjs/)
+- Sentry Next.js Issues: [github.com](https://github.com/getsentry/sentry-javascript/issues/8935)[](https://github.com/getsentry/sentry-javascript/issues/8935)
